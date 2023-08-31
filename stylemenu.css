@@ -1,0 +1,498 @@
+/* Overall Stuff */
+* {
+  font-family: NeuePlak-Black, -apple-system, BlinkMacSystemFont, Lato, "Segoe UI", Verdana, Arial, sans-serif;
+  font:"NeuePlak-Black";
+}
+
+
+.back {
+  background-color: black;
+  height: 100%;
+  width: 0%;
+  top: 0;
+  right: 0;
+  position: absolute;
+  /*background: url(template.png);
+  background-size: cover; */
+  overflow: hidden;
+  z-index: 100;
+  transition: ease-in;
+}
+
+
+/* Non-Main Components */
+
+
+.line {
+  position: absolute;
+  top: 7.5%;
+  left: 1.75%;
+  height: 50%;
+  width: 0.65%;
+  background-color: white;
+}
+
+.hori {
+  position: absolute;
+  transform: rotate(-90deg);
+  color: white;
+  font-weight: lighter;
+  top: 3.6%;
+  left: 0.85%;
+}
+
+
+
+
+
+
+/* Each Link */
+.home {
+  position: absolute;
+  top: 18%;
+  left: 51%;
+  width: 30%;
+  height: 11%;
+}
+
+
+.shows {
+  position: absolute;
+  top: 28.75%;
+  left: 51%;
+  width: 30%;
+  height: 11%;
+}
+
+.music {
+  position: absolute;
+  top: 40%;
+  left: 51%;
+  width: 30%;
+  height: 11%;
+}
+
+.about {
+  position: absolute;
+  top: 51%;
+  left: 51%;
+  width: 30%;
+  height: 11%;
+}
+
+.contact {
+  position: absolute;
+  top: 62%;
+  left: 51%;
+  width: 30%;
+  height: 11%;
+}
+
+
+
+
+
+/* Items within */
+
+.titt {
+  position: absolute;
+  text-decoration: none;
+  letter-spacing: -2px;
+  color: white; 
+  text-decoration: none;
+  font-size: 50px;
+  font:"NeuePlak-ExtendedBold";
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+  top: 30%;
+}
+
+/* Lines */
+
+.line1 {
+  position: absolute;
+  background-color: gray;
+  opacity: 1;
+  top: 99%;
+  left: 0;
+  width: 100%;
+  height: 1.5%;
+}
+
+.line11 {
+  position: absolute;
+  background-color: white;
+  opacity: 1;
+  top: 99%;
+  left: 0;
+  width: 0%;
+  height: 1.5%;
+}
+
+.line2 {
+  position: absolute;
+  background-color: gray;
+  opacity: 1;
+  top: 99%;
+  left: 0;
+  width: 100%;
+  height: 1.5%;
+}
+
+.line21 {
+  position: absolute;
+  background-color: white;
+  opacity: 1;
+  top: 99%;
+  left: 0;
+  width: 0%;
+  height: 1.5%;
+}
+
+.line3 {
+  position: absolute;
+  background-color: gray;
+  opacity: 1;
+  top: 99%;
+  left: 0;
+  width: 100%;
+  height: 1.5%;
+}
+
+.line31 {
+  position: absolute;
+  background-color: white;
+  opacity: 1;
+  top: 99%;
+  left: 0;
+  width: 0%;
+  height: 1.5%;
+}
+
+.line4 {
+  position: absolute;
+  background-color: gray;
+  opacity: 1;
+  top: 99%;
+  left: 0;
+  width: 100%;
+  height: 1.5%;
+}
+
+.line41 {
+  position: absolute;
+  background-color: white;
+  opacity: 1;
+  top: 99%;
+  left: 0;
+  width: 0%;
+  height: 1.5%;
+}
+
+.line5 {
+  position: absolute;
+  background-color: gray;
+  opacity: 1;
+  top: 99%;
+  left: 0;
+  width: 100%;
+  height: 1.5%;
+}
+
+.line51 {
+  position: absolute;
+  background-color: white;
+  opacity: 1;
+  top: 99%;
+  left: 0;
+  width: 0%;
+  height: 1.5%;
+}
+
+
+
+
+
+/* Line Animations */
+
+.home:hover .line11 {
+  width: 100%;
+  transition: 0.5s;
+}
+
+.shows:hover .line21 {
+  width: 100%;
+  transition: 0.5s;
+}
+
+.music:hover .line31 {
+  width: 100%;
+  transition: 0.5s;
+}
+
+.about:hover .line41 {
+  width: 100%;
+  transition: 0.5s;
+}
+
+.contact:hover .line51 {
+  width: 100%;
+  transition: 0.5s;
+}
+
+
+
+
+
+/* Photos */
+
+.img1 {
+  position: absolute;
+  left: -110%;
+  top: 15%;
+  width: 100%;
+  height: auto;
+}
+
+.img2 {
+  position: absolute;
+  left: -110%;
+  top: -83%;
+  width: 0%;
+  height: auto;
+}
+
+.img3 {
+  position: absolute;
+  left: -110%;
+  top: -185%;
+  width: 0%;
+  height: auto;
+}
+
+.img4 {
+  position: absolute;
+  left: -110%;
+  top: -285%;
+  width: 0%;
+  height: auto;
+}
+
+.img5 {
+  position: absolute;
+  left: -93.5%;
+  top: -387%;
+  width: 0%;
+  height: auto;
+}
+
+.black {
+  position: absolute;
+  background-color: black;
+  top: -400%;
+  left: -100%;
+  height: 550%;
+  width: 0%;
+}
+
+/* Img Animations */
+
+.home:hover .img1 {
+  width: 100%;
+}
+
+.shows:hover .img2 {
+  width: 100%;
+}
+
+.music:hover .img3 {
+  width: 100%;
+}
+
+.about:hover .img4 {
+  width: 100%;
+}
+
+.contact:hover .img5 {
+  width: 67%;
+}
+
+.contact:hover .black {
+  width: 80%;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Lower Components */
+
+
+.web {
+  font: bold  "NeuePlak-ExtendedBold",-apple-system,BlinkMacSystemFont,Lato,"Segoe UI",Verdana,Arial,sans-serif;
+  position: absolute;
+  font-size: 17px;
+  top: 96%;
+  left: 4%;
+  color: white;
+  text-decoration: none;
+  font-weight: bolder;
+  border-bottom: 1px white solid;
+  padding-bottom: 2px;
+}
+
+.rec {
+  font: bold  "NeuePlak-ExtendedBold",-apple-system,BlinkMacSystemFont,Lato,"Segoe UI",Verdana,Arial,sans-serif;
+  position: absolute;
+  font-size: 17px;
+  top: 96%;
+  left: 14%;
+  text-decoration: none;
+  font-weight: bolder;
+  color: white;
+  border-bottom: 1px white solid;
+  padding-bottom: 2px;
+}
+
+.insta {
+  font: bold  "NeuePlak-ExtendedBold",-apple-system,BlinkMacSystemFont,Lato,"Segoe UI",Verdana,Arial,sans-serif;
+  position: absolute;
+  font-size: 17px;
+  top: 96%;
+  left: 69.5%;
+  text-decoration: none;
+  font-weight: bolder;
+  color: white;
+  border-bottom: 1px white solid;
+  padding-bottom: 2px;
+}
+
+.tw {
+  font: bold  "NeuePlak-ExtendedBold",-apple-system,BlinkMacSystemFont,Lato,"Segoe UI",Verdana,Arial,sans-serif;
+  position: absolute;
+  font-size: 17px;
+  top: 96%;
+  left: 91.5%;
+  text-decoration: none;
+  font-weight: bolder;
+  color: white;
+  border-bottom: 1px white solid;
+  padding-bottom: 2px;
+}
+
+.spot {
+  font: bold  "NeuePlak-ExtendedBold",-apple-system,BlinkMacSystemFont,Lato,"Segoe UI",Verdana,Arial,sans-serif;
+  position: absolute;
+  font-size: 17px;
+  top: 96%;
+  left: 85%;
+  text-decoration: none;
+  font-weight: bolder;
+  color: white;
+  border-bottom: 1px white solid;
+  padding-bottom: 2px;
+}
+
+.you {
+  font: bold  "NeuePlak-ExtendedBold",-apple-system,BlinkMacSystemFont,Lato,"Segoe UI",Verdana,Arial,sans-serif;
+  position: absolute;
+  font-size: 17px;
+  top: 96%;
+  left: 78%;
+  text-decoration: none;
+  font-weight: bolder;
+  color: white;
+  border-bottom: 1px white solid;
+  padding-bottom: 2px;
+}
+
+.linee {
+  position: absolute;
+  top: 98%;
+  left: 42.5%;
+  right: 42.5%;
+  height: 0.1%;
+  background-color: white;
+}
+
+.x1 {
+  position: absolute;
+  top: 6.8%;
+  left: 90%;
+  height: 2.6%;
+  width: 0.45%;
+  background-color: white;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.x2 {
+  position: absolute;
+  top: 6.8%;
+  left: 90%;
+  height: 2.6%;
+  width: 0.45%;
+  background-color: white;
+  transform: rotate(90deg);
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.x1ani {
+  position: absolute;
+  top: 6.8%;
+  left: 90%;
+  height: 2.6%;
+  width: 0.45%;
+  background-color: white;
+  cursor: pointer;
+  z-index: 1000;
+  animation: cool2;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+.x2ani {
+  position: absolute;
+  top: 6.8%;
+  left: 90%;
+  height: 2.6%;
+  width: 0.45%;
+  background-color: white;
+  transform: rotate(90deg);
+  cursor: pointer;
+  z-index: 1000;
+  animation: cool1;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes cool1 {
+  0% {
+
+  }
+  100% {
+    transform: rotate(45deg);
+    left: 95%;
+  }
+}
+
+@keyframes cool2 {
+  0% {
+
+  }
+  100% {
+    transform: rotate(-45deg);
+    left: 95%;
+  }
+}
+
+
+

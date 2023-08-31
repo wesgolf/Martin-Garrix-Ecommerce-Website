@@ -1,0 +1,370 @@
+
+
+.sen {
+    position: absolute;
+    top: 15%;
+    left: 13.75%;
+    font-size: 30px;
+}
+
+.sen1 {
+    position: absolute;
+    top: 20%;
+    left: 13.75%;
+    font-size: 20px;
+    font-weight: lighter;
+}
+
+/* Cards */
+
+.item1 {
+    position: absolute;
+    top: 25.75%;
+    left: 13.74%;
+    height: 55%;
+    width: 16.7%;
+}
+
+.item2 {
+    position: absolute;
+    top: 25.75%;
+    left: 32.3%;
+    height: 55%;
+    width: 16.7%;
+}
+
+.item3 {
+    position: absolute;
+    top: 25.75%;
+    left: 50.875%;
+    height: 55%;
+    width: 16.7%;
+}
+
+.item4 {
+    position: absolute;
+    top: 25.75%;
+    left: 69.45%;
+    height: 55%;
+    width: 16.7%;
+}
+
+/* Items within Cards */
+
+.imgback {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    background-color: rgb(238,238,238);
+    height: 81%;
+
+}
+
+.title {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-weight: 99;
+    top: 84%;
+    text-transform: uppercase;
+    color: black;
+}
+
+.item1:hover .title {
+    border-bottom: 1px black solid;
+}
+
+.type {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    top: 89%;
+    text-transform: uppercase;
+    color: darkgray;
+    font-weight: 300;
+}
+
+.price {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    top: 94%;
+    text-transform: uppercase;
+    font-weight: 250;
+    color: black;
+}
+
+
+
+
+
+/* Button Below */
+
+.see {
+    position: absolute;
+    top: 85%;
+    left: 42.5%;
+    right: 42.5%;
+    height: 5%;
+    border-style: solid;
+    color: black;
+}
+
+.see1 {
+    position: absolute;
+    top: 25%;
+    font-size: 20px;
+    left: 0;
+    right: 0;
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+}
+
+.see:hover {
+    background-color: black;
+    color: white;
+    transition: 0.3s;
+}
+
+.see:hover .see1 {
+    color: white;
+    transition: 0.3s;
+}
+
+/* Images */
+
+.img1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url(sentio1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1;
+}
+
+.img12 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url(sentio2.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+}
+
+.imgback:hover .img1 {
+    opacity: 0;
+}
+
+.imgback:hover .img12 {
+    opacity: 1;
+}
+
+.img2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url(sentio3.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1;
+}
+
+.img22 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url(sentio4.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+}
+
+.imgback:hover .img2 {
+    opacity: 0;
+}
+
+.imgback:hover .img22 {
+    opacity: 1;
+}
+
+.img3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url(sentio5.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 1;
+}
+
+.img32 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url(sentio6.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0;
+}
+
+.imgback:hover .img3 {
+    opacity: 0;
+}
+
+.imgback:hover .img32 {
+    opacity: 1;
+}
+
+.img4 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url(sentio7.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1;
+}
+
+.img42 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url(sentio8.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+}
+
+.imgback:hover .img1 {
+    opacity: 0;
+}
+
+.imgback:hover .img12 {
+    opacity: 1;
+}
+
+
+
+
+.img5 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url(https://cdn.shopify.com/s/files/1/1656/2489/products/DSC00007_310x.png?v=1666871498);
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1;
+}
+
+.img52 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url(https://cdn.shopify.com/s/files/1/1656/2489/products/groenshirt_310x.png?v=1666872786);
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+}
+
+.imgback:hover .img5 {
+    opacity: 0;
+}
+
+.imgback:hover .img52 {
+    opacity: 1;
+}
+
+.img6 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url(https://cdn.shopify.com/s/files/1/1656/2489/products/DSC00018_310x.png?v=1666871619);
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1;
+}
+
+.img62 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url(https://cdn.shopify.com/s/files/1/1656/2489/products/shirtwit_310x.png?v=1666872798);
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+}
+
+.imgback:hover .img6 {
+    opacity: 0;
+}
+
+.imgback:hover .img62 {
+    opacity: 1;
+}
+
+
+.img7 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url(https://cdn.shopify.com/s/files/1/1656/2489/products/DSC00018_310x.png?v=1666871619);
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1;
+}
+
+.img72 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url(https://cdn.shopify.com/s/files/1/1656/2489/products/shirtwit_310x.png?v=1666872798);
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+}
+
+.imgback:hover .img7 {
+    opacity: 0;
+}
+
+.imgback:hover .img72 {
+    opacity: 1;
+}

@@ -1,0 +1,76 @@
+/* Cards */
+
+.item1 {
+    position: absolute;
+    top: 44%;
+    left: 13.74%;
+    height: 55%;
+    width: 16.7%;
+}
+
+.item2 {
+    position: absolute;
+    top: 44%;
+    left: 32.3%;
+    height: 55%;
+    width: 16.7%;
+}
+
+.item3 {
+    position: absolute;
+    top: 44%;
+    left: 50.875%;
+    height: 55%;
+    width: 16.7%;
+}
+
+.item4 {
+    position: absolute;
+    top: 44%;
+    left: 69.45%;
+    height: 55%;
+    width: 16.7%;
+}
+
+/* Items within Cards */
+
+.imgback {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    background-color: rgb(238,238,238);
+    height: 81%;
+
+}
+
+.title {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-weight: 99;
+    top: 84%;
+    text-transform: uppercase;
+}
+
+.type {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    top: 89%;
+    text-transform: uppercase;
+    color: darkgray;
+    font-weight: 300;
+}
+
+.price {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    top: 94%;
+    text-transform: uppercase;
+    font-weight: 250;
+}

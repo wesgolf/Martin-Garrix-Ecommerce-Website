@@ -1,0 +1,550 @@
+
+@import url('https://fonts.cdnfonts.com/css/neue-plak');
+
+                
+
+* {
+    font-family: NeuePlak-Black, -apple-system, BlinkMacSystemFont, Lato, "Segoe UI", Verdana, Arial, sans-serif;
+    font:"NeuePlak-Black";
+    margin: 0;
+    padding: 0;
+}
+
+.stmpdd {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.grx {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    height: 100%;
+    width: 100%;
+}
+
+.banner1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: url(https://i1.sndcdn.com/avatars-000419475519-942282-t500x500.jpg);
+    background-size: contain;
+}
+
+.banner2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: url(https://1000logos.net/wp-content/uploads/2020/02/Martin-Garrix-emblem.jpg);
+    background-size: contain;
+}
+
+.t11 {
+    position: absolute;
+    top: 30%;
+    left: 5%;
+    color: white;
+    font-size: 40px;
+    font-weight: bold; 
+    mix-blend-mode: difference;
+}
+
+.t22 {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    font-size: 30px;
+    font-weight: lighter;
+    color: white;
+    mix-blend-mode: difference;
+}
+
+
+/* Cards */
+
+.item1 {
+    position: absolute;
+    top: 44%;
+    left: 13.74%;
+    height: 55%;
+    width: 16.7%;
+}
+
+.item2 {
+    position: absolute;
+    top: 44%;
+    left: 32.3%;
+    height: 55%;
+    width: 16.7%;
+}
+
+.item3 {
+    position: absolute;
+    top: 44%;
+    left: 50.875%;
+    height: 55%;
+    width: 16.7%;
+}
+
+.item4 {
+    position: absolute;
+    top: 44%;
+    left: 69.45%;
+    height: 55%;
+    width: 16.7%;
+}
+
+/* Items within Cards */
+
+.imgback {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    background-color: rgb(238,238,238);
+    height: 81%;
+
+}
+
+.title {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-weight: 99;
+    top: 84%;
+    text-transform: uppercase;
+    color: black;
+}
+
+
+.type {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    top: 89%;
+    text-transform: uppercase;
+    color: darkgray;
+    font-weight: 300;
+}
+
+.price {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    top: 94%;
+    text-transform: uppercase;
+    font-weight: 250;
+    color: black;
+}
+
+
+/* Images */
+
+.imga {
+    background: url(https://cdn.shopify.com/s/files/1/1656/2489/products/Martin_Garrix_MG_AA_08_01_Black_ded3b809-d655-43c3-afb5-156d08086d2b_310x.png?v=1607700401);
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    background-repeat: no-repeat;
+}
+
+.imga2 {
+    background: url(https://cdn.shopify.com/s/files/1/1656/2489/products/Martin_Garrix_MG_AA_08_01_Black_ded3b809-d655-43c3-afb5-156d08086d2b_310x.png?v=1607700401);
+    background-position: center;
+    background-size: contain;
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-repeat: no-repeat;
+}
+
+.imgback:hover .imga {
+    opacity: 0;
+}
+
+.imgback:hover .imga2 {
+    opacity: 1;
+}
+
+.imgb {
+    background: url(https://cdn.shopify.com/s/files/1/1656/2489/products/Martin_Garrix_MG_AA_06_01_BlackGrey_Detail_310x.png?v=1569204709);
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    background-repeat: no-repeat;
+}
+
+.imgb2 {
+    background: url(https://cdn.shopify.com/s/files/1/1656/2489/products/Martin_Garrix_MG_AA_06_01_BlackGrey_Front_310x.png?v=1569204709);
+    background-position: center;
+    background-size: contain;
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-repeat: no-repeat;
+}
+
+.imgback:hover .imgb {
+    opacity: 0;
+}
+
+.imgback:hover .imgb2 {
+    opacity: 1;
+}
+
+.imgc {
+    background: url(https://cdn.shopify.com/s/files/1/1656/2489/products/Martin_Garrix_MG_AA_05_00_White_Side_600x600.png?v=1590400468);
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    background-repeat: no-repeat;
+}
+
+.imgc2 {
+    background: url(https://cdn.shopify.com/s/files/1/1656/2489/products/Martin_Garrix_MG_AA_05_00_White_Back_600x600.png?v=1590400318);
+    background-position: center;
+    background-size: contain;
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-repeat: no-repeat;
+}
+
+.imgback:hover .imgc {
+    opacity: 0;
+}
+
+.imgback:hover .imgc2 {
+    opacity: 1;
+}
+
+.imgd {
+    background: url(https://cdn.shopify.com/s/files/1/1656/2489/products/LIFECRAZY_310x.png?v=1585743493);
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    background-repeat: no-repeat;
+}
+
+.imgd2 {
+    background: url(https://cdn.shopify.com/s/files/1/1656/2489/products/LIFECRAZY_310x.png?v=1585743493);
+    background-position: center;
+    background-size: contain;
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-repeat: no-repeat;
+}
+
+.imgback:hover .imgd {
+    opacity: 0;
+}
+
+.imgback:hover .imgd2 {
+    opacity: 1;
+}
+
+
+
+
+
+.imge {
+    background: url(https://cdn.shopify.com/s/files/1/1656/2489/products/STMPD_Motel_Keychain_SIDE_1_420x420.png?v=1662636273);
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    background-repeat: no-repeat;
+}
+
+.imge2 {
+    background: url(https://cdn.shopify.com/s/files/1/1656/2489/products/STMPD_Motel_Keychain_SIDE_2_310x.png?v=1662636273);
+    background-position: center;
+    background-size: contain;
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-repeat: no-repeat;
+}
+
+.imgback:hover .imge {
+    opacity: 0;
+}
+
+.imgback:hover .imge2 {
+    opacity: 1;
+}
+
+.imgf {
+    background: url(https://cdn.shopify.com/s/files/1/1656/2489/products/STMPD_TOTEBAG_front_600x600.png?v=1662537024);
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    background-repeat: no-repeat;
+}
+
+.imgf2 {
+    background: url(https://cdn.shopify.com/s/files/1/1656/2489/products/STMPD_TOTEBAG_back_600x600.png?v=1662537024);
+    background-position: center;
+    background-size: contain;
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-repeat: no-repeat;
+}
+
+.imgback:hover .imgf {
+    opacity: 0;
+}
+
+.imgback:hover .imgf2 {
+    opacity: 1;
+}
+
+.imgg {
+    background: url(https://cdn.shopify.com/s/files/1/1656/2489/products/Martin_Garrix_SR_AA_08_01_Black_310x.png?v=1572534156);
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    background-repeat: no-repeat;
+}
+
+.imgg2 {
+    background: url(https://cdn.shopify.com/s/files/1/1656/2489/products/Martin_Garrix_SR_AA_08_01_Black_310x.png?v=1572534156);
+    background-position: center;
+    background-size: contain;
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-repeat: no-repeat;
+}
+
+.imgback:hover .imgg {
+    opacity: 0;
+}
+
+.imgback:hover .imgg2 {
+    opacity: 1;
+}
+
+.imgh {
+    background: url(https://cdn.shopify.com/s/files/1/1656/2489/products/SHAWL_STMPD_SIDE_1_600x600.png?v=1671029147);
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    background-repeat: no-repeat;
+}
+
+.imgh2 {
+    background: url(https://cdn.shopify.com/s/files/1/1656/2489/products/SHAWL_STMPD_SIDE_2_2000x.png?v=1671029147);
+    background-position: center;
+    background-size: contain;
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-repeat: no-repeat;
+}
+
+.imgback:hover .imgh {
+    opacity: 0;
+}
+
+.imgback:hover .imgh2 {
+    opacity: 1;
+}
+
+
+/* Fixed Main Elements */
+
+.menudiv {
+    position: fixed;
+    left: 85%;
+    width: 12%;
+    top: 5%;
+    height: 5%;
+    z-index: 100;
+    cursor: pointer;
+}
+
+.menu {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    font-size: 35px;
+    left: 0px;
+    right: 0%;
+    text-align: right;
+    text-decoration: none;
+    color: white;
+    mix-blend-mode: difference;
+    font-weight: bold;
+    top: 16%;
+    transition: opacity ease-out .3s;
+    
+
+}
+
+.plus1 {
+    position: fixed;
+    top: 6.75%;
+    left: 89.5%;
+    height: 0.75%;
+    width: 1.5%;
+    background-color: white;
+    mix-blend-mode: difference;
+    transition: 0.3s;
+    color: #fff;
+    mix-blend-mode: difference;
+    text-decoration: none;
+}
+
+.plus2 {
+    position: fixed;
+    top: 8.5%;
+    left: 89.5%;
+    height: 0.75%;
+    width: 1.5%;
+    background-color: white;
+    transition: 0.3s;
+}
+
+.menudiv:hover  .plus2 {
+    transform: rotate(90deg);
+    top: 7.75%;
+    transition: 0.3s;
+}
+
+
+.menudiv:hover  .plus1 {
+    top: 7.75%;
+    transition: 0.3s;
+}
+
+/* Top Left  */
+
+.plus {
+    position: fixed;
+    top: 7%;
+    left: 3%;
+    height: 3%;
+    width: 0.5%;
+    background-color: #fff;
+    z-index: 20;
+}
+
+.pluss {
+    position: fixed;
+    top: 7%;
+    left: 3%;
+    height: 3%;
+    width: 0.5%;
+    background-color: #fff;
+    transform: rotate(90deg);
+    z-index: 20;
+}
+
+
+
+.x {
+    position: fixed;
+    top: 7%;
+    left: 5.5%;
+    height: 3%;
+    width: 0.5%;
+    background-color: #fff;
+    transform: rotate(135deg);
+    z-index: 20;
+}
+.xx {
+    position: fixed;
+    top: 7%;
+    left: 5.5%;
+    height: 3%;
+    width: 0.5%;
+    background-color: #fff;
+    transform: rotate(45deg);
+    z-index: 20;
+}
+
+
+.footer {
+    position: absolute;
+    top: 200%;
+    height: 100%;
+    left: 0;
+    width: 100%;
+    background-color: black;
+}

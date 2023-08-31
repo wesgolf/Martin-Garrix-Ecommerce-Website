@@ -1,0 +1,348 @@
+
+.titt1 {
+    position: absolute;
+    top: 45%;
+    left: 25%;
+    color: white;
+    font-size: 20px;
+}
+
+.titt2 {
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    color: white;
+    font-size: 20px;
+}
+
+.titt3 {
+    position: absolute;
+    top: 45%;
+    left: 65%;
+    color: white;
+    font-size: 20px;
+}
+
+.und {
+    text-decoration: none;
+    color: white;
+    position: absolute;
+    left: 25%;
+    font-weight: lighter;
+}
+
+.und:hover {
+    text-decoration: line-through;
+    transition: 0.3s;
+}
+
+.undi {
+    text-decoration: none;
+    color: white;
+    position: absolute;
+    left: 45%;
+    font-weight: lighter;
+}
+
+.undi:hover {
+    text-decoration: line-through;
+    transition: 0.3s;
+}
+
+.unde {
+    text-decoration: none;
+    color: white;
+    position: absolute;
+    left: 65%;
+    font-weight: lighter;
+}
+
+.unde:hover {
+    text-decoration: line-through;
+    transition: 0.3s;
+}
+
+.o {
+    top: 50%;
+}
+
+.t {
+    top: 53%;
+}
+
+.th {
+    top: 56%;
+}
+
+.f {
+    top: 59%;
+}
+
+.fi {
+    top: 62%;
+}
+
+.s {
+    top: 65%;
+}
+
+
+/* Email Form */
+
+.subb {
+    position: absolute;
+    top: 80%;
+    left: 35%;
+    font-size: 20px;
+    color: white;
+    background: none;
+    border-color: none;
+    font-weight: lighter;
+}
+
+
+.emaill {
+    position: absolute;
+    top: 84%;
+    left: 35%;
+    border: none;
+    height: 3%;
+    background: none;
+    border-bottom: 1px solid white;
+    color: white;
+    font-size: 20px;
+    font-weight: lighter;
+    width: 30%;
+    
+}
+
+.sub {
+    position: absolute;
+    top: 83.3%;
+    left: 64%;
+    border: none;
+    background: none;
+    color: white;
+    font-size: 30px;
+    font-weight: lighter;
+}
+
+.copy {
+    position: absolute;
+    top: 89%;
+    left: 47%;
+    color: white;
+    font-size: 10px;
+    font-weight: lighter;
+}
+
+
+/* Follow Martin */
+
+.instagram {
+    position: absolute;
+    top: 20%;
+    right: calc(50% + 300px);
+    height: 100px;
+    width: 100px;
+    border: 1px solid white;
+}
+
+.instagram:hover{
+    background-color: white;
+}
+
+.youtube {
+    position: absolute;
+    top: 20%;
+    right: calc(50% + 200px);
+    height: 100px;
+    width: 100px;
+    border: 1px solid white;
+}
+
+.youtube:hover{
+    background-color: white;
+}
+
+
+.spotify {
+    position: absolute;
+    top: 20%;
+    right: calc(50% + 100px);
+    height: 100px;
+    width: 100px;
+    border: 1px solid white;
+}
+
+.spotify:hover{
+    background-color: white;
+}
+
+
+.facebook {
+    position: absolute;
+    top: 20%;
+    right: 50%;
+    height: 100px;
+    width: 100px;
+    border: 1px solid white;
+}
+
+.facebook:hover{
+    background-color: white;
+}
+
+.tiktok {
+    position: absolute;
+    top: 20%;
+    right: calc(50% - 100px);
+    height: 100px;
+    width: 100px;
+    border: 1px solid white;
+}
+
+.tiktok:hover{
+    background-color: white;
+}
+
+
+.twitter {
+    position: absolute;
+    top: 20%;
+    right: calc(50% - 200px);
+    height: 100px;
+    width: 100px;
+    border: 1px solid white;
+}
+
+.twitter:hover{
+    background-color: white;
+}
+
+
+.snapchat {
+    position: absolute;
+    top: 20%;
+    right: calc(50% - 300px);
+    height: 100px;
+    width: 100px;
+    border: 1px solid white;
+}
+
+.snapchat:hover{
+    background-color: white;
+}
+
+
+.apple {
+    position: absolute;
+    top: 20%;
+    right: calc(50% - 400px);
+    height: 100px;
+    width: 100px;
+    border: 1px solid white;
+}
+
+.apple:hover{
+    background-color: white;
+}
+
+
+.y {
+    position: absolute;
+    top: 70%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+    font-weight: lighter;
+}
+
+.fa-brands {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+    font-size: 45px;
+    top: 15%;
+}
+
+/* Hover Animations */
+
+.instagram:hover .y {
+    color: black;
+}
+
+.instagram:hover .fa-brands {
+    color: black;
+}
+
+.youtube:hover .y {
+    color: black;
+}
+
+.youtube:hover .fa-brands {
+    color: black;
+}
+
+.spotify:hover .y {
+    color: black;
+}
+
+.spotify:hover .fa-brands {
+    color: black;
+}
+
+.facebook:hover .y {
+    color: black;
+}
+
+.facebook:hover .fa-brands {
+    color: black;
+}
+
+.tiktok:hover .y {
+    color: black;
+}
+
+.tiktok:hover .fa-brands {
+    color: black;
+}
+
+.twitter:hover .y {
+    color: black;
+}
+
+.twitter:hover .fa-brands {
+    color: black;
+}
+
+.snapchat:hover .y {
+    color: black;
+}
+
+.snapchat:hover .fa-brands {
+    color: black;
+}
+
+.apple:hover .y {
+    color: black;
+}
+
+.apple:hover .fa-brands {
+    color: black;
+}
+
+/* Follow */
+
+.follow {
+    position: absolute;
+    top: 15%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}

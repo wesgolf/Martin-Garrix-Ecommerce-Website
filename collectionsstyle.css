@@ -1,0 +1,935 @@
+
+@import url('https://fonts.cdnfonts.com/css/neue-plak');
+
+                
+
+* {
+    font-family: NeuePlak-Black, -apple-system, BlinkMacSystemFont, Lato, "Segoe UI", Verdana, Arial, sans-serif;
+    font:"NeuePlak-Black";
+    margin: 0;
+    padding: 0;
+}
+
+/* Div Elements */
+
+.collection1 {
+    position: absolute;
+    top: 0%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.collection2 {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.collection3 {
+    position: absolute;
+    top: 200%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+}
+
+.collection4 {
+    position: absolute;
+    top: 300%;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+/* Headers */
+
+.heading1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: url(https://i.scdn.co/image/ab67616d0000b273f45f47a9a27c6d67f6fa2212);
+    background-size: contain;
+    background-position: center;
+}
+
+.heading2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: url(https://i.ytimg.com/vi/M_XQTIx7u8s/maxresdefault.jpg);
+    background-size: contain;
+    background-position: center;
+}
+
+.heading3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: url(https://yt3.googleusercontent.com/D6fZhTbmsM98GLUbA6GC7XY8n_KaoS_mhEbfnxWzZkAVOdUnCue7KXWNIZoK2NMm-lyye2Yv=s900-c-k-c0x00ffffff-no-rj);
+    background-size: contain;
+    background-position: center;
+}
+
+.heading4 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: url(https://1000logos.net/wp-content/uploads/2020/02/Martin-Garrix-emblem.jpg);
+    background-size: contain;
+    background-position: center;
+}
+
+
+
+
+
+
+/* Header Elements */
+
+.t11 {
+    position: absolute;
+    top: 30%;
+    left: 5%;
+    color: white;
+    font-size: 40px;
+    font-weight: bold; 
+    mix-blend-mode: difference;
+}
+
+.t22 {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    font-size: 30px;
+    font-weight: lighter;
+    color: white;
+    mix-blend-mode: difference;
+}
+
+/* Cards */
+
+.item1 {
+    position: absolute;
+    top: 44%;
+    left: 13.74%;
+    height: 55%;
+    width: 16.7%;
+}
+
+.item2 {
+    position: absolute;
+    top: 44%;
+    left: 32.3%;
+    height: 55%;
+    width: 16.7%;
+}
+
+.item3 {
+    position: absolute;
+    top: 44%;
+    left: 50.875%;
+    height: 55%;
+    width: 16.7%;
+}
+
+.item4 {
+    position: absolute;
+    top: 44%;
+    left: 69.45%;
+    height: 55%;
+    width: 16.7%;
+}
+
+/* Items within Cards */
+
+.imgback {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    background-color: rgb(238,238,238);
+    height: 81%;
+
+}
+
+.title {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-weight: 99;
+    top: 84%;
+    text-transform: uppercase;
+    color: black;
+}
+
+
+.type {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    top: 89%;
+    text-transform: uppercase;
+    color: darkgray;
+    font-weight: 300;
+}
+
+.price {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    top: 94%;
+    text-transform: uppercase;
+    font-weight: 250;
+    color: black;
+}
+
+
+/* Images */
+
+.imga {
+    background: url(https://web.archive.org/web/20220908143126im_/https://cdn.shopify.com/s/files/1/1656/2489/products/MG_SENTIO_SINGLE_T_LIGHT_front_310x.png?v=1662534682);
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    background-repeat: no-repeat;
+}
+
+.imga2 {
+    background: url(https://web.archive.org/web/20220908143126im_/https://cdn.shopify.com/s/files/1/1656/2489/products/MG_SENTIO_SINGLE_T_LIGHT_backpng_310x.png?v=1662534682);
+    background-position: center;
+    background-size: contain;
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-repeat: no-repeat;
+}
+
+.imgback:hover .imga {
+    opacity: 0;
+}
+
+.imgback:hover .imga2 {
+    opacity: 1;
+}
+
+.imgb {
+    background: url(https://web.archive.org/web/20220908143126im_/https://cdn.shopify.com/s/files/1/1656/2489/products/MG_SENTIO_SINGLE_HD_front_310x.png?v=1662534109);
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    background-repeat: no-repeat;
+}
+
+.imgb2 {
+    background: url(https://web.archive.org/web/20220908143126im_/https://cdn.shopify.com/s/files/1/1656/2489/products/MG_SENTIO_SINGLE_HD_back_310x.png?v=1662534109);
+    background-position: center;
+    background-size: contain;
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-repeat: no-repeat;
+}
+
+.imgback:hover .imgb {
+    opacity: 0;
+}
+
+.imgback:hover .imgb2 {
+    opacity: 1;
+}
+
+.imgc {
+    background: url(https://web.archive.org/web/20220908143126im_/https://cdn.shopify.com/s/files/1/1656/2489/products/MG_SENTIO_ALBUM_T_BLACK_front_310x.png?v=1662535159);
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    background-repeat: no-repeat;
+}
+
+.imgc2 {
+    background: url(https://web.archive.org/web/20220908143126im_/https://cdn.shopify.com/s/files/1/1656/2489/products/MG_SENTIO_ALBUM_T_BLACK_back_310x.png?v=1662535159);
+    background-position: center;
+    background-size: contain;
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-repeat: no-repeat;
+}
+
+.imgback:hover .imgc {
+    opacity: 0;
+}
+
+.imgback:hover .imgc2 {
+    opacity: 1;
+}
+
+.imgd {
+    background: url(https://web.archive.org/web/20220908143126im_/https://cdn.shopify.com/s/files/1/1656/2489/products/MG_SENTIO_ALBUM_HD_front_310x.png?v=1662533677);
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    background-repeat: no-repeat;
+}
+
+.imgd2 {
+    background: url(https://web.archive.org/web/20220908143126im_/https://cdn.shopify.com/s/files/1/1656/2489/products/MG_SENTIO_ALBUM_HD_back_310x.png?v=1662533677);
+    background-position: center;
+    background-size: contain;
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-repeat: no-repeat;
+}
+
+.imgback:hover .imgd {
+    opacity: 0;
+}
+
+.imgback:hover .imgd2 {
+    opacity: 1;
+}
+
+
+
+
+
+.imge {
+    background: url(https://cdn.shopify.com/s/files/1/1656/2489/products/STMPD_TapeHoodie_Front_310x.png?v=1671024613);
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    background-repeat: no-repeat;
+}
+
+.imge2 {
+    background: url(https://cdn.shopify.com/s/files/1/1656/2489/products/STMPD_TapeHoodie_Back_310x.png?v=1671024613);
+    background-position: center;
+    background-size: contain;
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-repeat: no-repeat;
+}
+
+.imgback:hover .imge {
+    opacity: 0;
+}
+
+.imgback:hover .imge2 {
+    opacity: 1;
+}
+
+.imgf {
+    background: url(https://cdn.shopify.com/s/files/1/1656/2489/products/STMPD_TapeTee_Front_310x.png?v=1671024824);
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    background-repeat: no-repeat;
+}
+
+.imgf2 {
+    background: url(https://cdn.shopify.com/s/files/1/1656/2489/products/STMPD_TapeTee_Back_310x.png?v=1671024824);
+    background-position: center;
+    background-size: contain;
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-repeat: no-repeat;
+}
+
+.imgback:hover .imgf {
+    opacity: 0;
+}
+
+.imgback:hover .imgf2 {
+    opacity: 1;
+}
+
+.imgg {
+    background: url(https://cdn.shopify.com/s/files/1/1656/2489/products/Martin_Garrix_SR_AA_08_01_Black_310x.png?v=1572534156);
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    background-repeat: no-repeat;
+}
+
+.imgg2 {
+    background: url(https://cdn.shopify.com/s/files/1/1656/2489/products/Martin_Garrix_SR_AA_08_01_Black_310x.png?v=1572534156);
+    background-position: center;
+    background-size: contain;
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-repeat: no-repeat;
+}
+
+.imgback:hover .imgg {
+    opacity: 0;
+}
+
+.imgback:hover .imgg2 {
+    opacity: 1;
+}
+
+.imgh {
+    background: url(https://cdn.shopify.com/s/files/1/1656/2489/products/SHAWL_STMPD_SIDE_1_600x600.png?v=1671029147);
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    background-repeat: no-repeat;
+}
+
+.imgh2 {
+    background: url(https://cdn.shopify.com/s/files/1/1656/2489/products/SHAWL_STMPD_SIDE_2_2000x.png?v=1671029147);
+    background-position: center;
+    background-size: contain;
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-repeat: no-repeat;
+}
+
+.imgback:hover .imgh {
+    opacity: 0;
+}
+
+.imgback:hover .imgh2 {
+    opacity: 1;
+}
+
+.imgi {
+    background: url(https://cdn.shopify.com/s/files/1/1656/2489/products/DSC00007_310x.png?v=1666871498);
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    background-repeat: no-repeat;
+}
+
+.imgi2 {
+    background: url(https://cdn.shopify.com/s/files/1/1656/2489/products/groenshirt_310x.png?v=1666872786);
+    background-position: center;
+    background-size: contain;
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-repeat: no-repeat;
+}
+
+.imgback:hover .imgi {
+    opacity: 0;
+}
+
+.imgback:hover .imgi2 {
+    opacity: 1;
+}
+
+.imgj {
+    background: url(https://web.archive.org/web/20220414035250im_/https://cdn.shopify.com/s/files/1/1656/2489/products/MGtee4_black_front_480x480.png?v=1607700217);
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    background-repeat: no-repeat;
+}
+
+.imgj2 {
+    background: url(https://web.archive.org/web/20220414035250im_/https://cdn.shopify.com/s/files/1/1656/2489/products/MGtee4_black_back_480x480.png?v=1607700218);
+    background-position: center;
+    background-size: contain;
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-repeat: no-repeat;
+}
+
+.imgback:hover .imgj {
+    opacity: 0;
+}
+
+.imgback:hover .imgj2 {
+    opacity: 1;
+}
+
+.imgk {
+    background: url(https://web.archive.org/web/20220414035250im_/https://cdn.shopify.com/s/files/1/1656/2489/products/STMPD_TS8_front_480x480.png?v=1645012708);
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    background-repeat: no-repeat;
+}
+
+.imgk2 {
+    background: url(https://web.archive.org/web/20220414035250im_/https://cdn.shopify.com/s/files/1/1656/2489/products/STMPD_TS8_back_480x480.png?v=1645012708);
+    background-position: center;
+    background-size: contain;
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-repeat: no-repeat;
+}
+
+.imgback:hover .imgk {
+    opacity: 0;
+}
+
+.imgback:hover .imgk2 {
+    opacity: 1;
+}
+
+.imgl {
+    background: url(https://web.archive.org/web/20220704030222im_/https://cdn.shopify.com/s/files/1/1656/2489/products/STMPD_TS7_front_480x480.png?v=1645019999);
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    background-repeat: no-repeat;
+}
+
+.imgl2 {
+    background: url(https://web.archive.org/web/20220704030222im_/https://cdn.shopify.com/s/files/1/1656/2489/products/STMPD_TS8_back_2000x_87f7c20d-1867-46dc-a665-39fe380935d1_480x480.png?v=1645019999);
+    background-position: center;
+    background-size: contain;
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-repeat: no-repeat;
+}
+
+.imgback:hover .imgl {
+    opacity: 0;
+}
+
+.imgback:hover .imgl2 {
+    opacity: 1;
+}
+
+.imgm {
+    background: url(https://web.archive.org/web/20220704030222im_/https://cdn.shopify.com/s/files/1/1656/2489/products/Garrix_TS5_front_480x480.png?v=1635182306);
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    background-repeat: no-repeat;
+}
+
+.imgm2 {
+    background: url(https://web.archive.org/web/20220704030222im_/https://cdn.shopify.com/s/files/1/1656/2489/products/Garrix_TS5_back_480x480.png?v=1635182306);
+    background-position: center;
+    background-size: contain;
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-repeat: no-repeat;
+}
+
+.imgback:hover .imgm {
+    opacity: 0;
+}
+
+.imgback:hover .imgm2 {
+    opacity: 1;
+}
+
+
+
+
+
+
+/* Footer */
+
+.footer {
+    position: absolute;
+    top: 400%;
+    height: 100%;
+    left: 0;
+    width: 100%;
+    background-color: black;
+}
+
+/* Fixed Main Elements */
+
+.menudiv {
+    position: fixed;
+    left: 85%;
+    width: 12%;
+    top: 5%;
+    height: 5%;
+    z-index: 100;
+    cursor: pointer;
+}
+
+.menu {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    font-size: 35px;
+    left: 0px;
+    right: 0%;
+    text-align: right;
+    text-decoration: none;
+    color: white;
+    mix-blend-mode: difference;
+    font-weight: bold;
+    top: 16%;
+    transition: opacity ease-out .3s;
+    
+
+}
+
+.plus1 {
+    position: fixed;
+    top: 6.75%;
+    left: 89.5%;
+    height: 0.75%;
+    width: 1.5%;
+    background-color: white;
+    mix-blend-mode: difference;
+    transition: 0.3s;
+    color: #fff;
+    mix-blend-mode: difference;
+    text-decoration: none;
+}
+
+.plus2 {
+    position: fixed;
+    top: 8.5%;
+    left: 89.5%;
+    height: 0.75%;
+    width: 1.5%;
+    background-color: white;
+    transition: 0.3s;
+}
+
+.menudiv:hover  .plus2 {
+    transform: rotate(90deg);
+    top: 7.75%;
+    transition: 0.3s;
+}
+
+
+.menudiv:hover  .plus1 {
+    top: 7.75%;
+    transition: 0.3s;
+}
+
+/* Top Left  */
+
+.plus {
+    position: fixed;
+    top: 7%;
+    left: 3%;
+    height: 3%;
+    width: 0.5%;
+    background-color: #fff;
+    z-index: 20;
+}
+
+.pluss {
+    position: fixed;
+    top: 7%;
+    left: 3%;
+    height: 3%;
+    width: 0.5%;
+    background-color: #fff;
+    transform: rotate(90deg);
+    z-index: 20;
+}
+
+
+
+.x {
+    position: fixed;
+    top: 7%;
+    left: 5.5%;
+    height: 3%;
+    width: 0.5%;
+    background-color: #fff;
+    transform: rotate(135deg);
+    z-index: 20;
+}
+.xx {
+    position: fixed;
+    top: 7%;
+    left: 5.5%;
+    height: 3%;
+    width: 0.5%;
+    background-color: #fff;
+    transform: rotate(45deg);
+    z-index: 20;
+}
+
+
+/* Sentio Collection */
+
+/*
+.head1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background-color: rgb(25, 25, 25);
+    background: url(https://i.scdn.co/image/ab67616d0000b273f45f47a9a27c6d67f6fa2212);
+    background-repeat: repeat-x;
+    background-size: contain;
+    background-position: center;
+}
+
+.head2 {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background-color: rgb(25, 25, 25);
+    background: url(https://i.ytimg.com/vi/M_XQTIx7u8s/maxresdefault.jpg);
+    background-repeat: repeat-x;
+    background-size: contain;
+    background-position: center;
+}
+
+.head3 {
+    position: absolute;
+    top: 200%;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background-color: rgb(25, 25, 25);
+    background: url(https://yt3.googleusercontent.com/D6fZhTbmsM98GLUbA6GC7XY8n_KaoS_mhEbfnxWzZkAVOdUnCue7KXWNIZoK2NMm-lyye2Yv=s900-c-k-c0x00ffffff-no-rj);
+    background-repeat: repeat-x;
+    background-size: contain;
+    background-position: center;
+}
+
+.head4 {
+    position: absolute;
+    top: 300%;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background-color: rgb(25, 25, 25);
+    background: url(https://1000logos.net/wp-content/uploads/2020/02/Martin-Garrix-emblem.jpg);
+    background-repeat: repeat-x;
+    background-size: contain;
+    background-position: center;
+}
+
+
+
+
+
+/* Fixed Heading Elements */
+
+/*
+.ti {
+    position: absolute;
+    top: 30%;
+    left: 5%;
+    color: white;
+    font-size: 40px;
+    font-weight: bold; 
+    mix-blend-mode: difference;
+}
+
+.ti1 {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    font-size: 30px;
+    font-weight: lighter;
+    color: white;
+    mix-blend-mode: difference;
+}
+
+
+
+
+
+
+
+/* Fixed Main Elements */
+
+.menudiv {
+    position: fixed;
+    left: 85%;
+    width: 12%;
+    top: 5%;
+    height: 5%;
+    z-index: 100;
+}
+
+.menu {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    font-size: 35px;
+    left: 0px;
+    right: 0%;
+    text-align: right;
+    text-decoration: none;
+    color: #fff;
+    mix-blend-mode: difference;
+    font-weight: bold;
+    top: 16%;
+    transition: opacity ease-out .3s;
+
+}
+
+.plus1 {
+    position: fixed;
+    top: 6.75%;
+    left: 89.5%;
+    height: 0.75%;
+    width: 1.5%;
+    background-color: white;
+    transition: 0.3s;
+}
+
+.plus2 {
+    position: fixed;
+    top: 8.5%;
+    left: 89.5%;
+    height: 0.75%;
+    width: 1.5%;
+    background-color: white;
+    transition: 0.3s;
+}
+
+.menudiv:hover  .plus2 {
+    transform: rotate(90deg);
+    top: 7.75%;
+    transition: 0.3s;
+}
+
+
+.menudiv:hover  .plus1 {
+    top: 7.75%;
+    transition: 0.3s;
+}
+
+/* Collections */
+
+.sentio {
+    position: absolute;
+    top: 0%;
+    bottom: 100%;
+    height: 100%;
+    width: 100%;
+    z-index: -10;
+}
