@@ -1,123 +1,4 @@
-const PRODUCTS = [
-  {
-    id: "sentio-singles-tee",
-    name: "SENTIO Singles Tee",
-    category: "T-shirts",
-    categoryKey: "tshirts",
-    collection: "SENTIO",
-    price: 48,
-    images: ["sentio1.png", "sentio2.png"],
-    badge: "New drop",
-    sizes: ["XS", "S", "M", "L", "XL", "XXL"],
-    color: "Black",
-    featured: true,
-    description: "A heavyweight black tee with a quiet SENTIO chest hit and the album's fractured plus-and-cross artwork across the back.",
-    details: ["240gsm heavyweight cotton", "Relaxed unisex fit", "Screen print on front and back", "Made in Portugal"]
-  },
-  {
-    id: "sentio-singles-hoodie",
-    name: "SENTIO Singles Hoodie",
-    category: "Hoodies",
-    categoryKey: "hoodies",
-    collection: "SENTIO",
-    price: 92,
-    images: ["sentio4.png", "sentio3.png"],
-    badge: "Bestseller",
-    sizes: ["XS", "S", "M", "L", "XL", "XXL"],
-    color: "Black",
-    featured: true,
-    description: "The essential SENTIO hoodie: minimal at the front, full album artwork at the back, cut in dense brushed cotton.",
-    details: ["420gsm brushed cotton", "Relaxed unisex fit", "Double-layer hood", "Made in Portugal"]
-  },
-  {
-    id: "plus-cross-tee",
-    name: "Plus × Cross Tour Tee",
-    category: "T-shirts",
-    categoryKey: "tshirts",
-    collection: "SIGNATURE",
-    price: 39,
-    compareAt: 52,
-    images: ["sentio5.png", "sentio6.png"],
-    badge: "Sale",
-    sizes: ["XS", "S", "M", "L", "XL", "XXL"],
-    color: "Black",
-    featured: true,
-    description: "A tour-ready black tee with Martin's plus-and-cross mark and a collage built from moments on the road.",
-    details: ["220gsm organic cotton", "Regular unisex fit", "Water-based print", "Made in Portugal"]
-  },
-  {
-    id: "plus-cross-hoodie",
-    name: "Plus × Cross Tour Hoodie",
-    category: "Hoodies",
-    categoryKey: "hoodies",
-    collection: "SIGNATURE",
-    price: 96,
-    images: ["sentio7.png", "sentio8.png"],
-    badge: "Limited",
-    sizes: ["XS", "S", "M", "L", "XL", "XXL"],
-    color: "Black",
-    featured: true,
-    description: "An oversized tour hoodie with signature chest embroidery and a full-colour show collage on the back.",
-    details: ["440gsm brushed cotton", "Oversized unisex fit", "Embroidered chest mark", "Made in Portugal"]
-  },
-  {
-    id: "plus-cross-cap",
-    name: "Plus × Cross Cap",
-    category: "Accessories",
-    categoryKey: "accessories",
-    collection: "SIGNATURE",
-    price: 24,
-    compareAt: 34,
-    images: ["assets/cap.svg"],
-    badge: "Sale",
-    sizes: [],
-    color: "Black",
-    description: "A low-profile six-panel cap finished with the plus-and-cross mark in white embroidery.",
-    details: ["Heavy cotton twill", "Adjustable metal closure", "Embroidered front mark", "One size fits most"]
-  },
-  {
-    id: "sentio-canvas-tote",
-    name: "SENTIO Canvas Tote",
-    category: "Accessories",
-    categoryKey: "accessories",
-    collection: "SENTIO",
-    price: 38,
-    images: ["assets/tote.svg"],
-    badge: "New drop",
-    sizes: [],
-    color: "Black",
-    description: "An everyday heavyweight canvas tote carrying the geometric SENTIO artwork in a crisp monochrome print.",
-    details: ["16oz cotton canvas", "Internal pocket", "Reinforced handles", "45 × 38 cm"]
-  },
-  {
-    id: "studio-bottle",
-    name: "Studio Bottle",
-    category: "Accessories",
-    categoryKey: "accessories",
-    collection: "STMPD RCRDS",
-    price: 29,
-    images: ["assets/bottle.svg"],
-    badge: "Studio essential",
-    sizes: [],
-    color: "Matte black",
-    description: "A double-wall steel bottle made for long studio sessions, finished with the Martin Garrix wordmark.",
-    details: ["Stainless steel", "500ml capacity", "BPA-free screw cap", "Hand wash only"]
-  },
-  {
-    id: "sentio-double-vinyl",
-    name: "SENTIO Double Vinyl",
-    category: "Collectibles",
-    categoryKey: "collectibles",
-    collection: "SENTIO",
-    price: 42,
-    images: ["assets/vinyl.svg"],
-    badge: "Collector's edition",
-    sizes: [],
-    color: "Black",
-    description: "SENTIO pressed across two heavyweight black records in a gatefold sleeve with expanded album artwork.",
-    details: ["2 × 180g black vinyl", "Gatefold sleeve", "Printed inner sleeves", "Digital download included"]
-  }
-];
+const PRODUCTS = Array.isArray(window.GARRIX_PRODUCTS) ? window.GARRIX_PRODUCTS : [];
 
 const CART_KEY = "mg-store-cart-v2";
 const SHIPPING_THRESHOLD = 120;
@@ -134,7 +15,12 @@ const icons = {
 };
 
 function money(value) {
-  return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(value);
+  return new Intl.NumberFormat("en-NL", { style: "currency", currency: "EUR", minimumFractionDigits: value % 1 ? 2 : 0, maximumFractionDigits: 2 }).format(value);
+}
+
+function imageAtWidth(url, width) {
+  if (!url || !url.includes("cdn.shopify.com")) return url;
+  return `${url}${url.includes("?") ? "&" : "?"}width=${width}`;
 }
 
 function escapeHtml(value) {
@@ -155,6 +41,28 @@ function productUrl(product) {
   return `product.html?id=${encodeURIComponent(product.id)}`;
 }
 
+function availableSizes(product) {
+  const selectableNames = ["size", "maat", "variation"];
+  const sizeIndex = product.options?.findIndex(({ name }) => selectableNames.includes(name.toLowerCase())) ?? -1;
+  if (sizeIndex < 0) return product.sizes;
+  return [...new Set(product.variants.filter(({ available }) => available).map(({ options }) => options[sizeIndex]).filter(Boolean))];
+}
+
+function variantForSelection(product, selection = "") {
+  const selectableNames = ["size", "maat", "variation"];
+  const optionIndex = product.options?.findIndex(({ name }) => selectableNames.includes(name.toLowerCase())) ?? -1;
+  if (optionIndex >= 0 && selection && selection !== "One size") {
+    return product.variants.find((variant) => variant.options[optionIndex] === selection && variant.available)
+      || product.variants.find((variant) => variant.options[optionIndex] === selection)
+      || null;
+  }
+  return product.variants.find(({ available }) => available) || product.variants[0] || null;
+}
+
+function itemPrice(product, selection = "") {
+  return variantForSelection(product, selection)?.price ?? product.price;
+}
+
 function currentPage() {
   return document.body.dataset.page || "";
 }
@@ -170,46 +78,33 @@ function renderShell() {
   if (headerRoot) {
     headerRoot.innerHTML = `
       <a class="skip-link" href="#main-content">Skip to content</a>
-      <div class="announcement">
-        <span>Martin Garrix merchandise</span>
-        <span class="announcement__center">Free shipping from ${money(SHIPPING_THRESHOLD)}</span>
-        <span>Worldwide delivery</span>
-      </div>
       <header class="site-header">
-        <a class="brand" href="index.html" aria-label="Martin Garrix Store home">
-          <span class="brand__symbol" aria-hidden="true"><b>+</b><b>×</b></span>
-          <span class="brand__name">MARTIN GARRIX</span>
-          <span class="brand__store">STORE</span>
+        <a class="brand" href="index.html" aria-label="Martin Garrix merchandise home">
+          <span class="brand__symbol" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><path d="M30 4H18V18H4V30H18V44H30V30H44V18H30V4Z"/></svg>
+            <svg viewBox="0 0 48 48"><path d="M42.3848 14.1005L33.8995 5.61519L24 15.5147L14.1005 5.61519L5.61523 14.1005L15.5147 24L5.61522 33.8995L14.1005 42.3847L24 32.4853L33.8995 42.3847L42.3848 33.8995L32.4853 24L42.3848 14.1005Z"/></svg>
+          </span>
         </a>
-        <nav class="desktop-nav" aria-label="Primary navigation">
-          <a href="collections.html"${isActive("shop")}>Shop all</a>
-          <a href="collections.html?category=hoodies">Hoodies</a>
-          <a href="acc.html"${isActive("accessories")}>Accessories</a>
-          <a href="sale.html"${isActive("sale")}>Sale</a>
-          <a href="contact.html"${isActive("contact")}>Contact</a>
-        </nav>
         <div class="header-actions">
-          <button class="icon-button header-search" type="button" data-search-open aria-label="Search the store">${icons.search}<span>Search</span></button>
-          <button class="icon-button bag-button" type="button" data-cart-open aria-label="Open shopping bag">${icons.bag}<span>Bag</span><span class="bag-count" data-cart-count>0</span></button>
-          <button class="menu-button" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu"><span class="menu-button__label">Menu</span><span class="menu-button__bars" aria-hidden="true"><i></i><i></i></span></button>
+          <button class="menu-button" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu"><span class="menu-button__bars" aria-hidden="true"><i></i><i></i></span><span class="menu-button__label">Menu</span></button>
         </div>
       </header>
       <nav class="mobile-menu" id="mobile-menu" data-mobile-menu aria-label="Site navigation" aria-hidden="true" inert>
+        <p class="mobile-menu__vertical" aria-hidden="true">MENU</p>
         <div class="mobile-menu__layout">
           <div class="mobile-menu__visual" aria-hidden="true">
-            <img src="assets/hero-concert.png" alt="" width="1672" height="941" loading="lazy">
-            <span><b>+ ×</b> Live the set / Wear the signal</span>
+            <img data-menu-visual src="https://images.prismic.io/garrix/c121a812-4475-4ed9-86e6-626570ececc6_home.jpg?auto=compress,format&amp;rect=0,0,1040,1040&amp;w=1040&amp;h=1040" alt="" width="1040" height="1040" loading="lazy">
+            <span><b>+ ×</b> Amsterdam / NL</span>
           </div>
           <div class="mobile-menu__main">
-            <a href="index.html"${isActive("home")}><span>I</span><strong>Home</strong><small>Start here</small></a>
-            <a href="collections.html"${isActive("shop")}><span>II</span><strong>Shop all</strong><small>All drops</small></a>
-            <a href="acc.html"${isActive("accessories")}><span>III</span><strong>Accessories</strong><small>Daily icons</small></a>
-            <a href="sale.html"${isActive("sale")}><span>IV</span><strong>Sale</strong><small>Final units</small></a>
-            <a href="contact.html"${isActive("contact")}><span>V</span><strong>Contact</strong><small>Store support</small></a>
-            <button type="button" data-search-open><span>VI</span><strong>Search</strong><small>Find a piece</small></button>
+            <a href="index.html" data-menu-image="https://images.prismic.io/garrix/c121a812-4475-4ed9-86e6-626570ececc6_home.jpg?auto=compress,format&amp;rect=0,0,1040,1040&amp;w=1040&amp;h=1040"${isActive("home")}><span>I</span><strong>Home</strong><small>Latest drop</small></a>
+            <a href="collections.html" data-menu-image="https://images.prismic.io/garrix/3b5e5adf-7307-423e-ac83-ef7cd0cfe511_nav-shop.jpg?auto=compress,format&amp;rect=0,0,1040,1040&amp;w=1040&amp;h=1040"${isActive("shop")}><span>II</span><strong>Collections</strong><small>All products</small></a>
+            <a href="collections.html?category=hoodies" data-menu-image="https://shop.martingarrix.com/cdn/shop/files/198A6508.jpg?v=1784213402&amp;width=1000"><span>III</span><strong>Apparel</strong><small>Tees / Hoodies</small></a>
+            <a href="acc.html" data-menu-image="https://cdn.shopify.com/s/files/1/1656/2489/files/KeychainBundle.png?v=1761642033&amp;width=1000"${isActive("accessories")}><span>IV</span><strong>Accessories</strong><small>Flags / Objects</small></a>
+            <a href="contact.html" data-menu-image="https://images.prismic.io/garrix/f9b48f37-5eb1-4bd2-986e-74e53d277437_nav-contact.jpg?auto=compress,format&amp;rect=0,0,1040,1040&amp;w=1040&amp;h=1040"${isActive("contact")}><span>V</span><strong>Contact</strong><small>Store support</small></a>
           </div>
         </div>
-        <div class="mobile-menu__meta"><span>Martin Garrix store / 2026</span><span>Worldwide delivery</span><span>Amsterdam / NL</span></div>
+        <div class="mobile-menu__meta"><a href="https://martingarrix.com/" target="_blank" rel="noreferrer">Martin Garrix ↗</a><a href="https://stmpdrcrds.com/" target="_blank" rel="noreferrer">STMPD RCRDS ↗</a><button type="button" data-search-open>Search</button><button type="button" data-cart-open>Bag (<span data-cart-count>0</span>)</button><a href="sale.html">Sale</a></div>
       </nav>`;
   }
 
@@ -217,22 +112,28 @@ function renderShell() {
     footerRoot.innerHTML = `
       <footer class="site-footer">
         <div class="footer-newsletter">
-          <p class="eyebrow">Stay in the loop</p>
-          <h2>FIRST ACCESS.<br>NO NOISE.</h2>
-          <p>New drops, limited restocks and studio stories—sent occasionally.</p>
+          <p class="eyebrow">Newsletter / New releases</p>
+          <h2>DON'T MISS<br>THE NEXT DROP.</h2>
+          <p>This demo form does not submit data. Connect a mailing service before publishing.</p>
           <form class="newsletter-form" action="#" data-newsletter-form novalidate>
             <label class="sr-only" for="newsletter-email">Email address</label>
             <input id="newsletter-email" type="email" autocomplete="email" placeholder="YOUR EMAIL ADDRESS" required>
             <button type="submit" aria-label="Subscribe">${icons.arrow}</button>
           </form>
         </div>
+        <div class="footer-social" aria-label="Follow Martin Garrix">
+          <a href="https://www.instagram.com/martingarrix/" target="_blank" rel="noreferrer"><span>01</span><strong>Instagram</strong><b aria-hidden="true">↗</b></a>
+          <a href="https://www.youtube.com/martingarrix" target="_blank" rel="noreferrer"><span>02</span><strong>YouTube</strong><b aria-hidden="true">↗</b></a>
+          <a href="https://open.spotify.com/artist/60d24wfXkVzDSfLS6hyCjZ" target="_blank" rel="noreferrer"><span>03</span><strong>Spotify</strong><b aria-hidden="true">↗</b></a>
+          <a href="https://www.tiktok.com/@martingarrix" target="_blank" rel="noreferrer"><span>04</span><strong>TikTok</strong><b aria-hidden="true">↗</b></a>
+        </div>
         <div class="footer-links">
-          <div><p>Shop</p><a href="collections.html">All products</a><a href="collections.html?category=hoodies">Hoodies</a><a href="acc.html">Accessories</a><a href="sale.html">Sale</a></div>
+          <div><p>Collections</p><a href="collections.html?collection=marty-season">Marty Season</a><a href="collections.html?collection=stmpd">STMPD RCRDS</a><a href="collections.html?collection=replay">Replay</a><a href="acc.html">Accessories</a></div>
           <div><p>Help</p><a href="contact.html">Contact</a><a href="contact.html#shipping">Shipping & returns</a><a href="contact.html#faq">FAQ</a><a href="checkout.html">Your bag</a></div>
-          <div><p>Follow</p><a href="https://www.instagram.com/martingarrix/" target="_blank" rel="noreferrer">Instagram ↗</a><a href="https://www.youtube.com/martingarrix" target="_blank" rel="noreferrer">YouTube ↗</a><a href="https://open.spotify.com/artist/60d24wfXkVzDSfLS6hyCjZ" target="_blank" rel="noreferrer">Spotify ↗</a></div>
+          <div><p>Official links</p><a href="https://shop.martingarrix.com/" target="_blank" rel="noreferrer">Official shop ↗</a><a href="https://martingarrix.com/" target="_blank" rel="noreferrer">Artist website ↗</a><a href="https://stmpdrcrds.com/" target="_blank" rel="noreferrer">STMPD RCRDS ↗</a></div>
         </div>
         <div class="footer-wordmark" aria-hidden="true">MARTIN GARRIX</div>
-        <div class="footer-bottom"><span>© <span data-year></span> Martin Garrix Store Concept</span><span>Designed for the front row</span><a href="#top">Back to top ↑</a></div>
+        <div class="footer-bottom"><span>Independent front-end concept / Not the official store</span><span>Product data and photography link to the public official shop</span><a href="#top">Back to top ↑</a></div>
       </footer>`;
   }
 
@@ -257,21 +158,24 @@ function renderShell() {
 
 function cardTemplate(product) {
   const alternateImage = product.images[1];
-  const action = product.sizes.length
-    ? `<a class="product-card__action" href="${productUrl(product)}">Choose options ${icons.arrow}</a>`
-    : `<button class="product-card__action" type="button" data-direct-add="${product.id}">Add to bag ${icons.arrow}</button>`;
+  const needsOptions = product.variants?.length > 1 || product.sizes.length > 0;
+  const action = !product.available
+    ? `<button class="product-card__action" type="button" disabled>Sold out</button>`
+    : needsOptions
+      ? `<a class="product-card__action" href="${productUrl(product)}">Choose options ${icons.arrow}</a>`
+      : `<button class="product-card__action" type="button" data-direct-add="${product.id}">Add to bag ${icons.arrow}</button>`;
   const salePrice = product.compareAt ? `<span class="price-old">${money(product.compareAt)}</span>` : "";
 
   return `
     <article class="product-card reveal" data-product-card data-category="${product.categoryKey}">
       <a class="product-card__visual${alternateImage ? " has-alternate" : ""}" href="${productUrl(product)}" aria-label="View ${product.name}">
         ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ""}
-        <img class="product-card__primary" src="${product.images[0]}" alt="${product.name}, front view" loading="lazy" width="500" height="500">
-        ${alternateImage ? `<img class="product-card__secondary" src="${alternateImage}" alt="${product.name}, alternate view" loading="lazy" width="500" height="500">` : ""}
+        <img class="product-card__primary" src="${imageAtWidth(product.images[0], 800)}" alt="${product.name}, product view" loading="lazy" width="800" height="800">
+        ${alternateImage ? `<img class="product-card__secondary" src="${imageAtWidth(alternateImage, 800)}" alt="${product.name}, alternate product view" loading="lazy" width="800" height="800">` : ""}
       </a>
       <div class="product-card__info">
         <div><p class="product-card__category">${product.collection} / ${product.category}</p><h3><a href="${productUrl(product)}">${product.name}</a></h3></div>
-        <p class="product-card__price">${salePrice}${money(product.price)}</p>
+        <p class="product-card__price">${salePrice}${product.priceMax > product.price ? `From ${money(product.price)}` : money(product.price)}</p>
       </div>
       ${action}
     </article>`;
@@ -301,16 +205,34 @@ function initCatalog() {
   const count = document.querySelector("[data-product-count]");
   const params = new URLSearchParams(window.location.search);
   const defaultCategory = grid.dataset.initialCategory || "all";
+  const collectionViews = {
+    "marty-season": { key: "marty season", label: "Marty Season", title: "MARTY<br>SEASON." },
+    stmpd: { key: "stmpd", label: "STMPD RCRDS", title: "STMPD<br>RCRDS." },
+    replay: { key: "replay for garrix", label: "Replay for Garrix", title: "REPLAY<br>FOR GARRIX." },
+    kids: { key: "kids", label: "Kids", title: "KIDS<br>COLLECTION." }
+  };
+  const collectionView = collectionViews[(params.get("collection") || "").toLowerCase()] || null;
+  const requestedCollection = collectionView?.key || "";
+  if (collectionView) {
+    const kicker = document.querySelector("[data-catalog-hero-kicker]");
+    const title = document.querySelector("[data-catalog-hero-title]");
+    const context = document.querySelector("[data-catalog-hero-context]");
+    if (kicker) kicker.textContent = "Selected collection / Official product feed";
+    if (title) title.innerHTML = collectionView.title;
+    if (context) context.innerHTML = `${collectionView.label} / <a href="collections.html">Clear filter</a>`;
+  }
   let category = params.get("category") || defaultCategory;
   const allowedCategories = [...(controls?.querySelectorAll("[data-category]") || [])].map((button) => button.dataset.category);
   if (!allowedCategories.includes(category)) category = defaultCategory;
-  let term = "";
+  let term = (params.get("q") || "").trim();
+  if (search && term) search.value = term;
 
   function paint() {
     let products = PRODUCTS.filter((product) => {
       const inCategory = category === "all" || product.categoryKey === category || (category === "accessories" && product.categoryKey === "collectibles");
-      const haystack = `${product.name} ${product.category} ${product.collection}`.toLowerCase();
-      return inCategory && haystack.includes(term.toLowerCase());
+      const inCollection = !requestedCollection || product.collection.toLowerCase() === requestedCollection;
+      const haystack = `${product.name} ${product.category} ${product.collection} ${(product.tags || []).join(" ")}`.toLowerCase();
+      return inCategory && inCollection && haystack.includes(term.toLowerCase());
     });
     if (grid.dataset.saleOnly === "true") products = products.filter((product) => product.compareAt);
 
@@ -355,8 +277,10 @@ function getCart() {
     return saved.flatMap((item) => {
       const product = productById(item?.id);
       const qty = Math.min(99, Math.max(1, Math.floor(Number(item?.qty))));
-      if (!product || !Number.isFinite(qty)) return [];
-      const size = product.sizes.length && product.sizes.includes(item?.size) ? item.size : (product.sizes[0] || "One size");
+      if (!product || !product.available || !Number.isFinite(qty)) return [];
+      const inStockSizes = availableSizes(product);
+      if (product.sizes.length && !inStockSizes.includes(item?.size)) return [];
+      const size = product.sizes.length ? item.size : "One size";
       return [{ id: product.id, size, qty }];
     });
   } catch {
@@ -377,13 +301,21 @@ function cartCount() {
 }
 
 function cartSubtotal() {
-  return cart.reduce((sum, item) => sum + productById(item.id).price * item.qty, 0);
+  return cart.reduce((sum, item) => {
+    const product = productById(item.id);
+    return sum + itemPrice(product, item.size) * item.qty;
+  }, 0);
 }
 
 function addToCart(id, size = "") {
   const product = productById(id);
   if (!product) return;
-  const selectedSize = product.sizes.length ? (product.sizes.includes(size) ? size : product.sizes[0]) : "One size";
+  if (!product.available) {
+    showToast(`${product.name} is currently sold out`);
+    return;
+  }
+  const inStockSizes = availableSizes(product);
+  const selectedSize = product.sizes.length ? (inStockSizes.includes(size) ? size : inStockSizes[0]) : "One size";
   const existing = cart.find((item) => item.id === id && item.size === selectedSize);
   if (existing?.qty >= 99) {
     showToast(`Maximum quantity reached for ${product.name}`);
@@ -419,9 +351,9 @@ function renderCart() {
   lines.innerHTML = cart.map((item, index) => {
     const product = productById(item.id);
     return `<article class="cart-line">
-      <a class="cart-line__image" href="${productUrl(product)}" aria-label="View ${product.name}"><img src="${product.images[0]}" alt="" width="130" height="130"></a>
+      <a class="cart-line__image" href="${productUrl(product)}" aria-label="View ${product.name}"><img src="${imageAtWidth(product.images[0], 260)}" alt="" width="260" height="260"></a>
       <div class="cart-line__detail"><div><p class="eyebrow">${product.collection}</p><h3><a href="${productUrl(product)}">${product.name}</a></h3><p>${item.size}${product.color ? ` · ${product.color}` : ""}</p></div>
-      <div class="cart-line__bottom"><div class="quantity-control" aria-label="${product.name} quantity"><button type="button" data-cart-action="decrease" data-index="${index}" aria-label="Decrease ${product.name} quantity, currently ${item.qty}">${icons.minus}</button><span aria-label="Quantity ${item.qty}">${item.qty}</span><button type="button" data-cart-action="increase" data-index="${index}" aria-label="Increase ${product.name} quantity, currently ${item.qty}">${icons.plus}</button></div><strong>${money(product.price * item.qty)}</strong></div>
+      <div class="cart-line__bottom"><div class="quantity-control" aria-label="${product.name} quantity"><button type="button" data-cart-action="decrease" data-index="${index}" aria-label="Decrease ${product.name} quantity, currently ${item.qty}">${icons.minus}</button><span aria-label="Quantity ${item.qty}">${item.qty}</span><button type="button" data-cart-action="increase" data-index="${index}" aria-label="Increase ${product.name} quantity, currently ${item.qty}">${icons.plus}</button></div><strong>${money(itemPrice(product, item.size) * item.qty)}</strong></div>
       <button class="cart-line__remove" type="button" data-cart-action="remove" data-index="${index}" aria-label="Remove ${product.name}">Remove</button></div>
     </article>`;
   }).join("");
@@ -496,27 +428,38 @@ function initProductDetail() {
     if (relatedSection) relatedSection.hidden = true;
     return;
   }
-  let selectedSize = product.sizes.includes("M") ? "M" : (product.sizes[0] || "One size");
+  const inStockSizes = availableSizes(product);
+  let selectedSize = inStockSizes.includes("M") ? "M" : (inStockSizes[0] || product.sizes[0] || "One size");
+  let selectedVariant = variantForSelection(product, selectedSize);
+  const selectableOption = product.options?.find(({ name }) => ["size", "maat", "variation"].includes(name.toLowerCase()));
+  const selectionLabel = selectableOption?.name.toLowerCase() === "variation" ? "Choose a variation" : "Choose your size";
+  const productDetails = product.details || [
+    `Official product type: ${product.category}`,
+    product.color ? `Colour: ${product.color}` : `${product.variants.length} product ${product.variants.length === 1 ? "option" : "options"}`,
+    product.available ? `${product.availableVariants} variant${product.availableVariants === 1 ? "" : "s"} available at catalog capture` : "Sold out at catalog capture",
+    "Live stock and purchasing are confirmed on the official shop"
+  ];
   document.title = `${product.name} — Martin Garrix Store`;
 
   root.innerHTML = `
     <section class="product-gallery" aria-label="Product images">
-      <div class="product-gallery__main"><span class="product-badge">${product.badge || product.collection}</span><img data-product-main-image src="${product.images[0]}" alt="${product.name}, front view" width="800" height="800"></div>
+      <div class="product-gallery__main"><span class="product-badge">${product.badge || product.collection}</span><img data-product-main-image src="${imageAtWidth(product.images[0], 1200)}" alt="${product.name}, product view" width="1200" height="1200"></div>
       <div class="product-thumbs">
-        ${product.images.map((image, index) => `<button type="button" data-product-thumb="${index}" class="${index === 0 ? "is-active" : ""}" aria-label="Show ${index ? "alternate" : "front"} view" aria-pressed="${index === 0}"><img src="${image}" alt="" width="120" height="120"></button>`).join("")}
+        ${product.images.map((image, index) => `<button type="button" data-product-thumb="${index}" class="${index === 0 ? "is-active" : ""}" aria-label="Show product image ${index + 1} of ${product.images.length}" aria-pressed="${index === 0}"><img src="${imageAtWidth(image, 220)}" alt="" width="220" height="220"></button>`).join("")}
       </div>
     </section>
     <section class="product-copy">
       <p class="eyebrow">${product.collection} / ${product.category}</p>
       <h1>${product.name}</h1>
-      <p class="product-copy__price">${product.compareAt ? `<span class="price-old">${money(product.compareAt)}</span>` : ""}${money(product.price)}</p>
+      <p class="product-copy__price" data-selected-price>${selectedVariant?.compareAt > selectedVariant?.price ? `<span class="price-old">${money(selectedVariant.compareAt)}</span>` : ""}${money(selectedVariant?.price ?? product.price)}</p>
       <p class="product-copy__intro">${product.description}</p>
-      <div class="product-option"><div><span>Colour</span><strong>${product.color}</strong></div><span class="colour-swatch is-active" aria-hidden="true"><i></i></span></div>
-      ${product.sizes.length ? `<fieldset class="size-picker"><legend><span>Choose your size</span><a href="#size-guide">Size guide</a></legend><div>${product.sizes.map((size) => `<button type="button" data-size="${size}" class="${size === selectedSize ? "is-active" : ""}" aria-pressed="${size === selectedSize}">${size}</button>`).join("")}</div></fieldset>` : ""}
-      <button class="button button--dark button--full add-product" type="button" data-add-product="${product.id}"><span>Add to bag</span><span>${money(product.price)} ${icons.arrow}</span></button>
-      <div class="product-notes"><span>Free shipping from ${money(SHIPPING_THRESHOLD)}</span><span>30-day returns</span><span>Secure demo checkout</span></div>
+      ${product.color ? `<div class="product-option"><div><span>Colour</span><strong>${product.color}</strong></div></div>` : ""}
+      ${product.sizes.length ? `<fieldset class="size-picker"><legend><span>${selectionLabel}</span>${selectableOption?.name.toLowerCase() === "variation" ? "" : `<a href="#size-guide">Size guide</a>`}</legend><div>${product.sizes.map((size) => `<button type="button" data-size="${size}" class="${size === selectedSize ? "is-active" : ""}" aria-pressed="${size === selectedSize}" ${inStockSizes.includes(size) ? "" : "disabled"}>${size}</button>`).join("")}</div></fieldset>` : ""}
+      <button class="button button--dark button--full add-product" type="button" data-add-product="${product.id}" ${selectedVariant?.available ? "" : "disabled"}><span>${selectedVariant?.available ? "Add to demo bag" : "Sold out"}</span><span data-add-price>${money(selectedVariant?.price ?? product.price)} ${selectedVariant?.available ? icons.arrow : ""}</span></button>
+      <a class="button button--official button--full" href="${product.sourceUrl}" target="_blank" rel="noreferrer">View on official shop <span aria-hidden="true">↗</span></a>
+      <div class="product-notes"><span>Official catalog snapshot</span><span>Live stock may change</span><span>Local demo bag only</span></div>
       <div class="product-accordions">
-        <details open><summary>Details ${icons.chevron}</summary><ul>${product.details.map((detail) => `<li>${detail}</li>`).join("")}</ul></details>
+        <details open><summary>Details ${icons.chevron}</summary><ul>${productDetails.map((detail) => `<li>${detail}</li>`).join("")}</ul></details>
         <details id="size-guide"><summary>Size & fit ${icons.chevron}</summary><p>${product.sizes.length ? "Fits true to size with a relaxed unisex cut. Size down for a closer fit or up for an oversized silhouette." : "This piece is sold in one universal size. Exact measurements are listed in the details above."}</p></details>
         <details><summary>Delivery & returns ${icons.chevron}</summary><p>Orders are usually packed within 1–2 working days. Unworn items can be returned within 30 days of delivery.</p></details>
       </div>
@@ -537,7 +480,7 @@ function initProductDetail() {
     const thumb = event.target.closest("[data-product-thumb]");
     if (thumb) {
       const index = Number(thumb.dataset.productThumb);
-      root.querySelector("[data-product-main-image]").src = product.images[index];
+      root.querySelector("[data-product-main-image]").src = imageAtWidth(product.images[index], 1200);
       root.querySelector("[data-product-main-image]").alt = `${product.name}, ${index ? "alternate" : "front"} view`;
       root.querySelectorAll("[data-product-thumb]").forEach((button) => {
         const active = button === thumb;
@@ -548,11 +491,21 @@ function initProductDetail() {
     const sizeButton = event.target.closest("[data-size]");
     if (sizeButton) {
       selectedSize = sizeButton.dataset.size;
+      selectedVariant = variantForSelection(product, selectedSize);
       root.querySelectorAll("[data-size]").forEach((button) => {
         const active = button === sizeButton;
         button.classList.toggle("is-active", active);
         button.setAttribute("aria-pressed", String(active));
       });
+      const price = root.querySelector("[data-selected-price]");
+      if (price) price.innerHTML = `${selectedVariant?.compareAt > selectedVariant?.price ? `<span class="price-old">${money(selectedVariant.compareAt)}</span>` : ""}${money(selectedVariant?.price ?? product.price)}`;
+      const addButton = root.querySelector("[data-add-product]");
+      if (addButton) {
+        addButton.disabled = !selectedVariant?.available;
+        addButton.querySelector("span:first-child").textContent = selectedVariant?.available ? "Add to demo bag" : "Sold out";
+        const addPrice = addButton.querySelector("[data-add-price]");
+        if (addPrice) addPrice.innerHTML = `${money(selectedVariant?.price ?? product.price)} ${selectedVariant?.available ? icons.arrow : ""}`;
+      }
     }
     if (event.target.closest("[data-add-product]")) addToCart(product.id, selectedSize);
   });
@@ -568,9 +521,16 @@ function searchResults(term = "") {
   const root = document.querySelector("[data-search-results]");
   if (!root) return;
   const normalized = term.trim().toLowerCase();
-  const products = PRODUCTS.filter((product) => `${product.name} ${product.category} ${product.collection}`.toLowerCase().includes(normalized)).slice(0, 6);
+  const matches = PRODUCTS.filter((product) => `${product.name} ${product.category} ${product.collection} ${(product.tags || []).join(" ")}`.toLowerCase().includes(normalized));
+  const products = matches.slice(0, 6);
   const safeTerm = escapeHtml(term.trim());
-  root.innerHTML = `<div class="search-results__label"><span>${normalized ? `Results for “${safeTerm}”` : "Popular now"}</span><span>${products.length} ${products.length === 1 ? "item" : "items"}</span></div>${products.length ? `<div>${products.map((product) => `<a class="search-result" href="${productUrl(product)}"><img src="${product.images[0]}" alt="" width="100" height="100"><span><small>${product.collection} / ${product.category}</small><strong>${product.name}</strong><em>${money(product.price)}</em></span>${icons.arrow}</a>`).join("")}</div>` : `<div class="search-no-results"><h2>NO SIGNAL.</h2><p>Try “hoodie”, “SENTIO” or “accessories”.</p></div>`}`;
+  const resultCount = normalized ? matches.length : products.length;
+  const viewAll = normalized && matches.length > products.length
+    ? `<a class="search-all" href="collections.html?q=${encodeURIComponent(term.trim())}">View all ${matches.length} results ${icons.arrow}</a>`
+    : !normalized
+      ? `<a class="search-all" href="collections.html">Shop all ${PRODUCTS.length} products ${icons.arrow}</a>`
+      : "";
+  root.innerHTML = `<div class="search-results__label"><span>${normalized ? `Results for “${safeTerm}”` : "Popular now"}</span><span>${resultCount} ${resultCount === 1 ? "item" : "items"}</span></div>${products.length ? `<div>${products.map((product) => `<a class="search-result" href="${productUrl(product)}"><img src="${imageAtWidth(product.images[0], 200)}" alt="" width="200" height="200"><span><small>${product.collection} / ${product.category}</small><strong>${product.name}</strong><em>${money(product.price)}</em></span>${icons.arrow}</a>`).join("")}${viewAll}</div>` : `<div class="search-no-results"><h2>NO SIGNAL.</h2><p>Try “Marty Season”, “hoodie”, “STMPD” or “accessories”.</p></div>`}`;
 }
 
 function openSearch() {
@@ -634,8 +594,8 @@ function renderCheckoutSummary() {
 
   root.innerHTML = `<div class="checkout-lines">${cart.map((item) => {
     const product = productById(item.id);
-    return `<div class="checkout-line"><div><img src="${product.images[0]}" alt="" width="90" height="90"><span>${item.qty}</span></div><p><strong>${product.name}</strong><small>${item.size} · ${product.color}</small></p><strong>${money(product.price * item.qty)}</strong></div>`;
-  }).join("")}</div><dl class="checkout-totals"><div><dt>Subtotal</dt><dd>${money(subtotal)}</dd></div><div><dt>Shipping</dt><dd>${shipping ? money(shipping) : "Free"}</dd></div><div><dt>Total</dt><dd>${money(total)} <small>USD</small></dd></div></dl>`;
+    return `<div class="checkout-line"><div><img src="${imageAtWidth(product.images[0], 180)}" alt="" width="180" height="180"><span>${item.qty}</span></div><p><strong>${product.name}</strong><small>${item.size}${product.color ? ` · ${product.color}` : ""}</small></p><strong>${money(itemPrice(product, item.size) * item.qty)}</strong></div>`;
+  }).join("")}</div><dl class="checkout-totals"><div><dt>Subtotal</dt><dd>${money(subtotal)}</dd></div><div><dt>Shipping</dt><dd>${shipping ? money(shipping) : "Free"}</dd></div><div><dt>Total</dt><dd>${money(total)} <small>EUR</small></dd></div></dl>`;
 }
 
 function initForms() {
@@ -726,9 +686,130 @@ function initHomeHeader() {
   }, { passive: true });
 }
 
+function initSiteLoader() {
+  const loader = document.querySelector("[data-site-loader]");
+  if (!loader) return;
+  const startedAt = Date.now();
+  let finished = false;
+  const finish = () => {
+    if (finished) return;
+    finished = true;
+    const remaining = Math.max(0, 550 - (Date.now() - startedAt));
+    setTimeout(() => {
+      loader.classList.add("is-finished");
+      setTimeout(() => loader.remove(), 650);
+    }, remaining);
+  };
+  if (document.readyState === "complete") finish();
+  else window.addEventListener("load", finish, { once: true });
+  setTimeout(finish, 2200);
+}
+
+function initDropHero() {
+  const root = document.querySelector("[data-drop-hero]");
+  if (!root) return;
+  const slides = [...root.querySelectorAll("[data-drop-slide]")];
+  const dots = [...root.querySelectorAll("[data-drop-dot]")];
+  const pauseButton = root.querySelector("[data-drop-pause]");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let current = Math.max(0, slides.findIndex((slide) => slide.classList.contains("is-active")));
+  let paused = reducedMotion;
+  let interactionPaused = false;
+  let timer = null;
+
+  function show(index) {
+    current = (index + slides.length) % slides.length;
+    slides.forEach((slide, slideIndex) => {
+      const active = slideIndex === current;
+      slide.classList.toggle("is-active", active);
+      slide.setAttribute("aria-hidden", String(!active));
+      slide.inert = !active;
+    });
+    dots.forEach((dot, dotIndex) => {
+      const active = dotIndex === current;
+      dot.classList.toggle("is-active", active);
+      dot.setAttribute("aria-pressed", String(active));
+    });
+  }
+
+  function schedule() {
+    clearTimeout(timer);
+    if (paused || interactionPaused || document.hidden) return;
+    timer = setTimeout(() => {
+      show(current + 1);
+      schedule();
+    }, 6500);
+  }
+
+  dots.forEach((dot) => dot.addEventListener("click", () => {
+    show(Number(dot.dataset.dropDot));
+    schedule();
+  }));
+
+  pauseButton?.addEventListener("click", () => {
+    paused = !paused;
+    pauseButton.textContent = paused ? "Play" : "Pause";
+    pauseButton.setAttribute("aria-label", `${paused ? "Play" : "Pause"} carousel`);
+    schedule();
+  });
+
+  root.addEventListener("keydown", (event) => {
+    const focusedDot = event.target.closest("[data-drop-dot]");
+    if (!focusedDot) return;
+    if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+    event.preventDefault();
+    const focusedIndex = Number(focusedDot.dataset.dropDot);
+    show(focusedIndex + (event.key === "ArrowLeft" ? -1 : 1));
+    dots[current]?.focus();
+    schedule();
+  });
+  root.addEventListener("pointerenter", () => { interactionPaused = true; schedule(); });
+  root.addEventListener("pointerleave", () => { interactionPaused = false; schedule(); });
+  root.addEventListener("focusin", () => { interactionPaused = true; schedule(); });
+  root.addEventListener("focusout", () => {
+    queueMicrotask(() => {
+      interactionPaused = root.contains(document.activeElement);
+      schedule();
+    });
+  });
+  document.addEventListener("visibilitychange", schedule);
+  if (reducedMotion && pauseButton) {
+    pauseButton.textContent = "Play";
+    pauseButton.setAttribute("aria-label", "Play carousel");
+  }
+  show(current);
+  schedule();
+}
+
+function initMenuVisual() {
+  const frame = document.querySelector(".mobile-menu__visual");
+  const image = frame?.querySelector("[data-menu-visual]");
+  if (!frame || !image) return;
+  let changeTimer = null;
+
+  document.querySelectorAll("[data-menu-image]").forEach((link) => {
+    const changeImage = () => {
+      const nextSource = link.dataset.menuImage;
+      if (!nextSource || image.src === nextSource) return;
+      clearTimeout(changeTimer);
+      frame.classList.add("is-changing");
+      changeTimer = setTimeout(() => {
+        image.src = nextSource;
+        image.addEventListener("load", () => frame.classList.remove("is-changing"), { once: true });
+        changeTimer = setTimeout(() => frame.classList.remove("is-changing"), 900);
+      }, 150);
+    };
+    link.addEventListener("pointerenter", changeImage);
+    link.addEventListener("focus", changeImage);
+  });
+}
+
 function bindGlobalEvents() {
   document.addEventListener("click", (event) => {
-    if (event.target.closest("[data-cart-open]")) openCart();
+    if (event.target.closest("[data-cart-open]")) {
+      if (document.querySelector("[data-mobile-menu]")?.classList.contains("is-open")) toggleMobileMenu(false);
+      openCart();
+    }
     if (event.target.closest("[data-cart-close], [data-cart-scrim]")) closeCart();
     if (event.target.closest("[data-search-open]")) {
       if (document.querySelector("[data-mobile-menu]")?.classList.contains("is-open")) toggleMobileMenu(false);
@@ -765,8 +846,19 @@ function bindGlobalEvents() {
 
   document.addEventListener("keydown", (event) => {
     const openDrawer = document.querySelector("[data-cart-drawer].is-open");
+    const openMenu = document.querySelector("[data-mobile-menu].is-open");
     if (event.key === "Tab" && openDrawer) {
       const focusable = [...openDrawer.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])')];
+      if (focusable.length) {
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+      }
+    }
+    if (event.key === "Tab" && !openDrawer && openMenu) {
+      const menuToggle = document.querySelector("[data-menu-toggle]");
+      const focusable = [menuToggle, ...openMenu.querySelectorAll('a[href], button:not([disabled])')].filter(Boolean);
       if (focusable.length) {
         const first = focusable[0];
         const last = focusable[focusable.length - 1];
@@ -785,14 +877,13 @@ function bindGlobalEvents() {
     if (event.target === event.currentTarget) closeSearch();
   });
 
-  const desktopQuery = window.matchMedia("(min-width: 901px)");
-  const resetMobileMenu = (event) => { if (event.matches) toggleMobileMenu(false); };
-  if (desktopQuery.addEventListener) desktopQuery.addEventListener("change", resetMobileMenu);
-  else desktopQuery.addListener(resetMobileMenu);
 }
 
 renderShell();
+initSiteLoader();
 initHomeHeader();
+initMenuVisual();
+initDropHero();
 initProductDetail();
 renderStaticGrids();
 initCatalog();

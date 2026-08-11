@@ -8,44 +8,26 @@
   <title>Contact — Martin Garrix Store</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="store.css">
+  <script src="catalog.js" defer></script>
   <script src="store.js" defer></script>
 </head>
 <body id="top" data-page="contact">
   <div data-site-header></div>
 
   <main id="main-content">
-    <header class="contact-hero">
-      <div class="contact-hero__title">
-        <div>
-          <p class="eyebrow">Store support</p>
-          <h1>HOW CAN<br>WE HELP?</h1>
-        </div>
+    <section class="contact-stage" aria-labelledby="contact-form-title">
+      <div class="contact-stage__intro">
+        <a href="#faq" class="contact-back"><span aria-hidden="true">←</span> Quick answers</a>
+        <p class="eyebrow">Store support / Demo</p>
+        <h1 id="contact-form-title">HOW CAN<br>WE HELP<br>YOU?</h1>
+        <p class="contact-signoff"><span aria-hidden="true"></span> Martin Garrix store concept</p>
       </div>
-      <div class="contact-hero__copy">
-        <p class="eyebrow">24–48 hour reply</p>
-        <p>Questions about a drop, delivery or your order? Give us the details and our support crew will point you in the right direction.</p>
-      </div>
-    </header>
 
-    <section class="contact-layout" aria-labelledby="contact-form-title">
-      <aside class="contact-aside" aria-label="Support information">
-        <div class="contact-aside__item">
-          <strong>Typical response</strong>
-          <p>Within 2 working days</p>
+      <div class="contact-stage__form">
+        <div class="contact-form-lead">
+          <p class="eyebrow">Send a message</p>
+          <p>This front-end form demonstrates the support flow. It validates locally but does not transmit your details.</p>
         </div>
-        <div class="contact-aside__item">
-          <strong>Support hours</strong>
-          <p>Monday–Friday<br>09:00–17:00 CET</p>
-        </div>
-        <div class="contact-aside__item">
-          <strong>Quick answers</strong>
-          <p><a href="#faq">Read the frequently asked questions</a></p>
-        </div>
-      </aside>
-
-      <div class="contact-form-wrap">
-        <p class="eyebrow">Start here</p>
-        <h2 id="contact-form-title">SEND A MESSAGE.</h2>
         <form class="contact-form" action="#" data-contact-form novalidate>
           <div class="form-grid">
             <div class="field">
@@ -76,7 +58,7 @@
               <textarea id="contact-message" rows="7" minlength="10" placeholder="Tell us what happened and how we can help." required></textarea>
             </div>
           </div>
-          <button class="button button--dark" type="submit">Send message <span aria-hidden="true">&#8594;</span></button>
+          <button class="button button--dark button--full" type="submit">Prepare demo message <span aria-hidden="true">&#8594;</span></button>
         </form>
 
         <div class="contact-status" data-contact-status role="status" aria-live="polite" tabindex="-1"></div>

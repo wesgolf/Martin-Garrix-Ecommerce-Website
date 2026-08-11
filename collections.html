@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Shop all Martin Garrix merchandise, including limited T-shirts, hoodies, accessories and collectibles.">
+  <meta name="description" content="Browse the current public Martin Garrix shop catalog, including T-shirts, hoodies, jackets, accessories and kids pieces.">
   <meta name="theme-color" content="#111111">
   <meta property="og:title" content="Shop All — Martin Garrix Store">
   <meta property="og:description" content="Explore every Martin Garrix collection and find your front-row uniform.">
@@ -11,6 +11,7 @@
   <title>Shop All — Martin Garrix Store</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="store.css">
+  <script src="catalog.js" defer></script>
   <script src="store.js" defer></script>
 </head>
 <body data-page="shop" id="top">
@@ -19,12 +20,12 @@
   <main id="main-content">
     <header class="catalog-hero catalog-hero--shop">
       <div>
-        <p class="eyebrow">Complete collection / All drops</p>
-        <h1>SHOP<br>EVERYTHING.</h1>
+        <p class="eyebrow" data-catalog-hero-kicker>Current catalog / Official product feed</p>
+        <h1 data-catalog-hero-title>ALL<br>PRODUCTS.</h1>
       </div>
       <div class="catalog-hero__aside">
-        <p class="eyebrow">+ × / Made to move</p>
-        <p>From quiet chest hits to full-volume back prints. Explore every piece in the Martin Garrix store.</p>
+        <p class="eyebrow" data-catalog-hero-context>+ × / Martin Garrix &amp; STMPD RCRDS</p>
+        <p>Forty-two current products with official titles, euro prices, availability and photography from the public shop catalog.</p>
       </div>
     </header>
 
@@ -34,8 +35,9 @@
           <button class="is-active" type="button" data-category="all">All</button>
           <button type="button" data-category="tshirts">T-shirts</button>
           <button type="button" data-category="hoodies">Hoodies</button>
+          <button type="button" data-category="outerwear">Jackets</button>
           <button type="button" data-category="accessories">Accessories</button>
-          <button type="button" data-category="collectibles">Collectibles</button>
+          <button type="button" data-category="kids">Kids</button>
         </div>
         <div class="catalog-tools">
           <label class="catalog-search">
@@ -53,7 +55,7 @@
             </select>
           </label>
         </div>
-        <p class="product-count" data-product-count aria-live="polite">8 items</p>
+        <p class="product-count" data-product-count aria-live="polite">42 items</p>
       </div>
       <div class="product-grid catalog-grid" data-product-grid data-catalog-grid></div>
     </section>
