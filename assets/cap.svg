@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-labelledby="title desc">
+  <title id="title">Black Martin Garrix plus cross cap</title>
+  <desc id="desc">A minimal black cap with an embroidered plus and cross mark.</desc>
+  <defs>
+    <linearGradient id="crown" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#323232"/>
+      <stop offset=".55" stop-color="#111"/>
+      <stop offset="1" stop-color="#050505"/>
+    </linearGradient>
+    <linearGradient id="brim" x1="0" y1="0" x2="1" y2=".4">
+      <stop offset="0" stop-color="#050505"/>
+      <stop offset="1" stop-color="#2c2c2c"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="22" stdDeviation="18" flood-color="#000" flood-opacity=".18"/>
+    </filter>
+  </defs>
+  <g filter="url(#shadow)">
+    <path d="M158 337c10-125 72-200 178-200 99 0 162 65 181 179-93-35-220-28-359 21Z" fill="url(#crown)"/>
+    <path d="M339 139c-8 63-7 126 2 190" fill="none" stroke="#444" stroke-width="3" opacity=".55"/>
+    <path d="M164 334c135-35 264-42 353-18 37 10 65 27 79 48-90 18-183 18-280 0-68-13-119-18-152-15-22 2-35 0-38-8-2-5 11-8 38-7Z" fill="url(#brim)"/>
+    <path d="M137 340c76-9 146 0 211 25 71 27 152 28 242 2" fill="none" stroke="#565656" stroke-width="4" opacity=".45"/>
+  </g>
+  <g fill="#fff" transform="translate(323 230)">
+    <rect x="-29" y="-8" width="58" height="16" rx="2"/>
+    <rect x="-8" y="-29" width="16" height="58" rx="2"/>
+    <path d="m48-21 14 14 14-14 11 11-14 14 14 14-11 11-14-14-14 14-11-11 14-14-14-14Z"/>
+  </g>
+</svg>

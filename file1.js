@@ -1,5 +1,1 @@
-var menu = document.getElementsByClassName('back')
-
-function myfunction(
-    menu.style.width = "100%"
-)
+// Legacy entry point kept for older bookmarks. The completed storefront uses store.js.
