@@ -14,6 +14,17 @@ const icons = {
   plus: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5v14"></path></svg>'
 };
 
+const socialIcons = {
+  instagram: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle class="social-icon__dot" cx="17.4" cy="6.7" r="1"></circle></svg>',
+  youtube: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4"></rect><path class="social-icon__fill" d="m10 9 6 3-6 3Z"></path></svg>',
+  spotify: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M7.5 9.2c3.7-1 7.6-.6 10.7 1M8.3 12.2c3.2-.7 6.3-.3 9 1M9 15.1c2.4-.5 4.8-.2 7 .8"></path></svg>',
+  facebook: '<svg viewBox="0 0 24 24" aria-hidden="true"><path class="social-icon__fill" d="M14.2 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.6 1.6-1.6h1.7V3.8c-.8-.1-1.6-.2-2.4-.2-2.4 0-4.1 1.5-4.1 4.2V10H8.3v3H11v8Z"></path></svg>',
+  tiktok: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 3v11.1a4.4 4.4 0 1 1-3.8-4.4v3.2a1.5 1.5 0 1 0 .8 1.3V3h3Zm0 0c.5 2.3 1.9 3.7 4.2 4.1v3.1a7.5 7.5 0 0 1-4.2-1.5"></path></svg>',
+  x: '<svg viewBox="0 0 32 26" aria-hidden="true"><path class="social-icon__fill" d="M32 3.078c-1.19.522-2.458.868-3.78 1.036A6.59 6.59 0 0 0 31.106.488a13.12 13.12 0 0 1-4.16 1.588A6.55 6.55 0 0 0 15.75 8.058 18.6 18.6 0 0 1 2.228 1.196a6.56 6.56 0 0 0 2.016 8.768 6.5 6.5 0 0 1-2.964-.808v.072a6.56 6.56 0 0 0 5.256 6.446 6.7 6.7 0 0 1-2.962.104 6.57 6.57 0 0 0 6.13 4.57A13.15 13.15 0 0 1 0 23.056 18.5 18.5 0 0 0 10.064 26c12.072 0 18.672-10 18.672-18.668 0-.29-.01-.57-.024-.848A13.3 13.3 0 0 0 32 3.078Z"></path></svg>',
+  snapchat: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.3c-2.8 0-4.6 2.2-4.6 5.2 0 1 .2 1.9-.1 2.6-.4.8-1.2 1.1-2.3 1.5-.6.2-.5 1 .1 1.3.8.4 1.5.5 2 .6.3 1 1 1.7 2.1 2.1.8.3 1.1 1.2 1.4 1.9.4-.1.9-.2 1.4-.2s1 .1 1.4.2c.3-.7.6-1.6 1.4-1.9 1.1-.4 1.8-1.1 2.1-2.1.5-.1 1.2-.2 2-.6.6-.3.7-1.1.1-1.3-1.1-.4-1.9-.7-2.3-1.5-.3-.7-.1-1.6-.1-2.6 0-3-1.8-5.2-4.6-5.2Z"></path></svg>',
+  music: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 17.2a3 3 0 1 1-2-2.8V6l11-2v11.2a3 3 0 1 1-2-2.8V8.2L9 9.5Z"></path></svg>'
+};
+
 function money(value) {
   return new Intl.NumberFormat("en-NL", { style: "currency", currency: "EUR", minimumFractionDigits: value % 1 ? 2 : 0, maximumFractionDigits: 2 }).format(value);
 }
@@ -86,14 +97,14 @@ function renderShell() {
           </span>
         </a>
         <div class="header-actions">
-          <button class="menu-button" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu"><span class="menu-button__bars" aria-hidden="true"><i></i><i></i></span><span class="menu-button__label">Menu</span></button>
+          <button class="menu-button" type="button" data-menu-toggle aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span class="menu-button__bars" aria-hidden="true"><i></i><i></i></span><span class="menu-button__label">Menu</span></button>
         </div>
       </header>
       <nav class="mobile-menu" id="mobile-menu" data-mobile-menu aria-label="Site navigation" aria-hidden="true" inert>
         <p class="mobile-menu__vertical" aria-hidden="true">MENU</p>
         <div class="mobile-menu__layout">
           <div class="mobile-menu__visual" aria-hidden="true">
-            <img data-menu-visual src="https://images.prismic.io/garrix/c121a812-4475-4ed9-86e6-626570ececc6_home.jpg?auto=compress,format&amp;rect=0,0,1040,1040&amp;w=1040&amp;h=1040" alt="" width="1040" height="1040" loading="lazy">
+            <img data-menu-visual src="https://images.prismic.io/garrix/c121a812-4475-4ed9-86e6-626570ececc6_home.jpg?auto=compress,format&amp;rect=0,0,1040,1040&amp;w=1040&amp;h=1040" alt="" width="1040" height="1040" loading="eager">
             <span><b>+ ×</b> Amsterdam / NL</span>
           </div>
           <div class="mobile-menu__main">
@@ -110,30 +121,58 @@ function renderShell() {
 
   if (footerRoot) {
     footerRoot.innerHTML = `
-      <footer class="site-footer">
-        <div class="footer-newsletter">
-          <p class="eyebrow">Newsletter / New releases</p>
-          <h2>DON'T MISS<br>THE NEXT DROP.</h2>
-          <p>This demo form does not submit data. Connect a mailing service before publishing.</p>
-          <form class="newsletter-form" action="#" data-newsletter-form novalidate>
-            <label class="sr-only" for="newsletter-email">Email address</label>
-            <input id="newsletter-email" type="email" autocomplete="email" placeholder="YOUR EMAIL ADDRESS" required>
-            <button type="submit" aria-label="Subscribe">${icons.arrow}</button>
-          </form>
+      <footer class="artist-footer" id="footer">
+        <div class="artist-footer__social-shell">
+          <section class="artist-footer__signup" aria-labelledby="footer-newsletter-title">
+            <div>
+              <p>Newsletter / New releases</p>
+              <h2 id="footer-newsletter-title">DON'T MISS THE NEXT DROP.</h2>
+            </div>
+            <form class="artist-footer__newsletter" action="#" data-newsletter-form novalidate>
+              <label class="sr-only" for="newsletter-email">Email address</label>
+              <input id="newsletter-email" type="email" autocomplete="email" placeholder="YOUR EMAIL ADDRESS" required>
+              <button type="submit" aria-label="Preview newsletter signup">${icons.arrow}</button>
+            </form>
+          </section>
+
+          <section class="artist-footer__social" aria-labelledby="footer-social-title">
+            <h2 id="footer-social-title">Follow Me</h2>
+            <ul>
+              <li><a href="https://www.instagram.com/martingarrix/" target="_blank" rel="noreferrer" aria-label="Martin Garrix on Instagram">${socialIcons.instagram}<span>instagram</span></a></li>
+              <li><a href="https://www.youtube.com/martingarrix" target="_blank" rel="noreferrer" aria-label="Martin Garrix on YouTube">${socialIcons.youtube}<span>youtube</span></a></li>
+              <li><a href="https://open.spotify.com/artist/60d24wfXkVzDSfLS6hyCjZ" target="_blank" rel="noreferrer" aria-label="Martin Garrix on Spotify">${socialIcons.spotify}<span>spotify</span></a></li>
+              <li><a href="https://www.facebook.com/martin.garrix/" target="_blank" rel="noreferrer" aria-label="Martin Garrix on Facebook">${socialIcons.facebook}<span>facebook</span></a></li>
+              <li><a href="https://www.tiktok.com/@martingarrix" target="_blank" rel="noreferrer" aria-label="Martin Garrix on TikTok">${socialIcons.tiktok}<span>tiktok</span></a></li>
+              <li><a href="https://twitter.com/martingarrix" target="_blank" rel="noreferrer" aria-label="Martin Garrix on X">${socialIcons.x}<span>twitter</span></a></li>
+              <li><a href="https://www.snapchat.com/add/martingarrix" target="_blank" rel="noreferrer" aria-label="Martin Garrix on Snapchat">${socialIcons.snapchat}<span>snapchat</span></a></li>
+              <li><a href="https://music.apple.com/artist/martin-garrix/430932944" target="_blank" rel="noreferrer" aria-label="Martin Garrix on Apple Music">${socialIcons.music}<span>music</span></a></li>
+            </ul>
+          </section>
         </div>
-        <div class="footer-social" aria-label="Follow Martin Garrix">
-          <a href="https://www.instagram.com/martingarrix/" target="_blank" rel="noreferrer"><span>01</span><strong>Instagram</strong><b aria-hidden="true">↗</b></a>
-          <a href="https://www.youtube.com/martingarrix" target="_blank" rel="noreferrer"><span>02</span><strong>YouTube</strong><b aria-hidden="true">↗</b></a>
-          <a href="https://open.spotify.com/artist/60d24wfXkVzDSfLS6hyCjZ" target="_blank" rel="noreferrer"><span>03</span><strong>Spotify</strong><b aria-hidden="true">↗</b></a>
-          <a href="https://www.tiktok.com/@martingarrix" target="_blank" rel="noreferrer"><span>04</span><strong>TikTok</strong><b aria-hidden="true">↗</b></a>
+
+        <div class="artist-footer__gutter">
+          <div class="artist-footer__panel">
+            <nav class="artist-footer__nav" aria-label="Footer navigation">
+              <div><h2>Shop</h2><ul><li><a href="collections.html">All products</a></li><li><a href="collections.html?category=tshirts">T-shirts</a></li><li><a href="collections.html?category=hoodies">Hoodies</a></li><li><a href="acc.html">Accessories</a></li><li><a href="sale.html">Sale</a></li></ul></div>
+              <div><h2>Collections</h2><ul><li><a href="collections.html?collection=marty-season">Marty Season</a></li><li><a href="collections.html?collection=stmpd">STMPD RCRDS</a></li><li><a href="collections.html?collection=replay">Replay for Garrix</a></li><li><a href="collections.html?collection=kids">Kids</a></li></ul></div>
+              <div><h2>Help</h2><ul><li><a href="contact.html">Contact us</a></li><li><a href="contact.html#shipping">Shipping &amp; returns</a></li><li><a href="contact.html#faq">Frequently asked</a></li><li><a href="checkout.html">Your bag</a></li></ul></div>
+              <div><h2>Official</h2><ul><li><a href="https://martingarrix.com/" target="_blank" rel="noreferrer">Artist website</a></li><li><a href="https://shop.martingarrix.com/" target="_blank" rel="noreferrer">Official shop</a></li><li><a href="https://stmpdrcrds.com/" target="_blank" rel="noreferrer">STMPD RCRDS</a></li><li><a href="https://www.stmpdstudios.com/" target="_blank" rel="noreferrer">STMPD Studios</a></li></ul></div>
+            </nav>
+
+            <div class="artist-footer__promos">
+              <a href="https://stmpdrcrds.com/" target="_blank" rel="noreferrer"><strong>STMPD<br>RCRDS</strong><span>Got any tunes?</span></a>
+              <a href="https://www.stmpdstudios.com/" target="_blank" rel="noreferrer"><strong>STMPD<br>STUDIOS</strong><span>Rent the studio</span></a>
+            </div>
+
+            <div class="artist-footer__meta">
+              <div class="artist-footer__brandline">
+                <a href="index.html" aria-label="Back to home"><span aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M30 4H18V18H4V30H18V44H30V30H44V18H30V4Z"/></svg><svg viewBox="0 0 48 48"><path d="M42.3848 14.1005L33.8995 5.61519L24 15.5147L14.1005 5.61519L5.61523 14.1005L15.5147 24L5.61522 33.8995L14.1005 42.3847L24 32.4853L33.8995 42.3847L42.3848 33.8995L32.4853 24L42.3848 14.1005Z"/></svg></span></a>
+                <p>© <span data-year></span> Martin Garrix</p>
+              </div>
+              <ul><li><a href="https://martingarrix.com/terms/" target="_blank" rel="noreferrer">Terms &amp; Conditions</a></li><li><a href="https://martingarrix.com/privacy/" target="_blank" rel="noreferrer">Privacy Policy</a></li><li><a href="https://martingarrix.com/cookies/" target="_blank" rel="noreferrer">Cookies Policy</a></li><li><a href="#top">Back to top</a></li></ul>
+            </div>
+          </div>
         </div>
-        <div class="footer-links">
-          <div><p>Collections</p><a href="collections.html?collection=marty-season">Marty Season</a><a href="collections.html?collection=stmpd">STMPD RCRDS</a><a href="collections.html?collection=replay">Replay</a><a href="acc.html">Accessories</a></div>
-          <div><p>Help</p><a href="contact.html">Contact</a><a href="contact.html#shipping">Shipping & returns</a><a href="contact.html#faq">FAQ</a><a href="checkout.html">Your bag</a></div>
-          <div><p>Official links</p><a href="https://shop.martingarrix.com/" target="_blank" rel="noreferrer">Official shop ↗</a><a href="https://martingarrix.com/" target="_blank" rel="noreferrer">Artist website ↗</a><a href="https://stmpdrcrds.com/" target="_blank" rel="noreferrer">STMPD RCRDS ↗</a></div>
-        </div>
-        <div class="footer-wordmark" aria-hidden="true">MARTIN GARRIX</div>
-        <div class="footer-bottom"><span>Independent front-end concept / Not the official store</span><span>Product data and photography link to the public official shop</span><a href="#top">Back to top ↑</a></div>
       </footer>`;
   }
 
@@ -222,19 +261,51 @@ function initCatalog() {
     if (context) context.innerHTML = `${collectionView.label} / <a href="collections.html">Clear filter</a>`;
   }
   let category = params.get("category") || defaultCategory;
-  const allowedCategories = [...(controls?.querySelectorAll("[data-category]") || [])].map((button) => button.dataset.category);
+  const filterGroup = controls?.querySelector(".filter-chips");
+  const filterButtons = [...(controls?.querySelectorAll("[data-category]") || [])];
+  const allowedCategories = filterButtons.map((button) => button.dataset.category);
   if (!allowedCategories.includes(category)) category = defaultCategory;
   let term = (params.get("q") || "").trim();
   if (search && term) search.value = term;
+  const requestedSort = params.get("sort");
+  if (sort && [...sort.options].some((option) => option.value === requestedSort)) sort.value = requestedSort;
 
-  function paint() {
-    let products = PRODUCTS.filter((product) => {
-      const inCategory = category === "all" || product.categoryKey === category || (category === "accessories" && product.categoryKey === "collectibles");
-      const inCollection = !requestedCollection || product.collection.toLowerCase() === requestedCollection;
+  const categoryMatches = (product, key) => key === "all" || product.categoryKey === key || (key === "accessories" && product.categoryKey === "collectibles");
+  const baseProducts = PRODUCTS.filter((product) => {
+    const inCollection = !requestedCollection || product.collection.toLowerCase() === requestedCollection;
+    const inSale = grid.dataset.saleOnly !== "true" || product.compareAt;
+    return inCollection && inSale;
+  });
+  const availableCategoryKeys = new Set(baseProducts.map((product) => product.categoryKey));
+  if (availableCategoryKeys.has("collectibles")) availableCategoryKeys.add("accessories");
+  if (category !== "all" && !availableCategoryKeys.has(category)) category = allowedCategories.includes(defaultCategory) ? defaultCategory : "all";
+
+  filterButtons.forEach((button) => {
+    button.hidden = button.dataset.category !== "all" && !availableCategoryKeys.has(button.dataset.category);
+  });
+  const meaningfulFilters = filterButtons.filter((button) => !button.hidden && button.dataset.category !== "all");
+  if (filterGroup) filterGroup.hidden = meaningfulFilters.length <= 1;
+
+  function syncCatalogUrl() {
+    if (!window.history?.replaceState) return;
+    const nextParams = new URLSearchParams(window.location.search);
+    if (category === defaultCategory || category === "all") nextParams.delete("category");
+    else nextParams.set("category", category);
+    if (term) nextParams.set("q", term);
+    else nextParams.delete("q");
+    if (sort?.value && sort.value !== "featured") nextParams.set("sort", sort.value);
+    else nextParams.delete("sort");
+    const query = nextParams.toString();
+    window.history.replaceState(null, "", `${window.location.pathname}${query ? `?${query}` : ""}${window.location.hash}`);
+  }
+
+  let hasPainted = false;
+  function paint({ syncUrl = false } = {}) {
+    let products = baseProducts.filter((product) => {
+      const inCategory = categoryMatches(product, category);
       const haystack = `${product.name} ${product.category} ${product.collection} ${(product.tags || []).join(" ")}`.toLowerCase();
-      return inCategory && inCollection && haystack.includes(term.toLowerCase());
+      return inCategory && haystack.includes(term.toLowerCase());
     });
-    if (grid.dataset.saleOnly === "true") products = products.filter((product) => product.compareAt);
 
     const sortValue = sort?.value || "featured";
     if (sortValue === "price-low") products.sort((a, b) => a.price - b.price);
@@ -248,24 +319,34 @@ function initCatalog() {
       button.classList.toggle("is-active", active);
       button.setAttribute("aria-pressed", String(active));
     });
-    initReveal();
+    if (syncUrl) syncCatalogUrl();
+    if (hasPainted) grid.querySelectorAll(".reveal").forEach((node) => node.classList.add("is-revealed"));
+    else initReveal();
+    hasPainted = true;
   }
 
   controls?.addEventListener("click", (event) => {
     const button = event.target.closest("[data-category]");
     if (!button) return;
     category = button.dataset.category;
-    paint();
+    paint({ syncUrl: true });
   });
-  search?.addEventListener("input", () => { term = search.value.trim(); paint(); });
-  sort?.addEventListener("change", paint);
+  let searchTimer = null;
+  search?.addEventListener("input", () => {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(() => {
+      term = search.value.trim();
+      paint({ syncUrl: true });
+    }, 160);
+  });
+  sort?.addEventListener("change", () => paint({ syncUrl: true }));
   grid.addEventListener("click", (event) => {
     if (!event.target.closest("[data-clear-filters]")) return;
     category = defaultCategory;
     term = "";
     if (search) search.value = "";
     if (sort) sort.value = "featured";
-    paint();
+    paint({ syncUrl: true });
   });
   paint();
 }
@@ -361,11 +442,22 @@ function renderCart() {
 }
 
 let lastFocused = null;
+let lastSearchFocused = null;
 let cartScrimTimer = null;
 
+function safeOverlayOpener(element) {
+  if (!(element instanceof HTMLElement)) return document.querySelector("[data-menu-toggle]");
+  return element.closest("[data-mobile-menu]") ? document.querySelector("[data-menu-toggle]") : element;
+}
+
+function restoreOverlayFocus(element) {
+  if (!(element instanceof HTMLElement) || !element.isConnected || element.closest("[inert]")) return;
+  element.focus();
+}
+
 function syncShellInert() {
-  const cartOpen = Boolean(document.querySelector("[data-cart-drawer].is-open"));
-  const menuOpen = Boolean(document.querySelector("[data-mobile-menu].is-open"));
+  const cartOpen = Boolean(document.querySelector("[data-cart-drawer].is-open, [data-cart-drawer].is-closing"));
+  const menuOpen = Boolean(document.querySelector("[data-mobile-menu].is-open, [data-mobile-menu].is-closing"));
   const header = document.querySelector("[data-site-header]");
   const main = document.querySelector("main");
   const footer = document.querySelector("[data-site-footer]");
@@ -380,8 +472,9 @@ function openCart() {
   if (!drawer || !scrim) return;
   if (drawer.classList.contains("is-open")) return;
   clearTimeout(cartScrimTimer);
-  lastFocused = document.activeElement;
+  lastFocused = safeOverlayOpener(document.activeElement);
   scrim.hidden = false;
+  drawer.classList.remove("is-closing");
   drawer.classList.add("is-open");
   requestAnimationFrame(() => scrim.classList.add("is-open"));
   drawer.inert = false;
@@ -397,14 +490,19 @@ function closeCart() {
   if (!drawer || !scrim) return;
   if (!drawer.classList.contains("is-open")) return;
   drawer.classList.remove("is-open");
+  drawer.classList.add("is-closing");
   scrim.classList.remove("is-open");
   drawer.setAttribute("aria-hidden", "true");
   drawer.inert = true;
   clearTimeout(cartScrimTimer);
-  cartScrimTimer = setTimeout(() => { scrim.hidden = true; }, 520);
-  document.body.classList.remove("overlay-open");
   syncShellInert();
-  if (lastFocused instanceof HTMLElement) lastFocused.focus();
+  cartScrimTimer = setTimeout(() => {
+    scrim.hidden = true;
+    drawer.classList.remove("is-closing");
+    document.body.classList.remove("overlay-open");
+    syncShellInert();
+    restoreOverlayFocus(lastFocused);
+  }, 520);
 }
 
 function showToast(message) {
@@ -537,6 +635,7 @@ function openSearch() {
   const dialog = document.querySelector("[data-search-dialog]");
   if (!dialog) return;
   if (dialog.open) return;
+  lastSearchFocused = safeOverlayOpener(document.activeElement);
   searchResults();
   dialog.showModal();
   document.body.classList.add("overlay-open");
@@ -548,6 +647,34 @@ function closeSearch() {
   if (!dialog?.open) return;
   dialog.close();
   document.body.classList.remove("overlay-open");
+  restoreOverlayFocus(lastSearchFocused);
+}
+
+let menuMotionCleanup = null;
+
+function afterMenuMotion(menu, callback) {
+  menuMotionCleanup?.();
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let finished = false;
+  const finish = () => {
+    if (finished) return;
+    finished = true;
+    clearTimeout(fallbackTimer);
+    menu.removeEventListener("transitionend", onTransitionEnd);
+    menuMotionCleanup = null;
+    callback();
+  };
+  const onTransitionEnd = (event) => {
+    if (event.target === menu && event.propertyName === "transform") finish();
+  };
+  const fallbackTimer = setTimeout(finish, reducedMotion ? 0 : 700);
+  menu.addEventListener("transitionend", onTransitionEnd);
+  menuMotionCleanup = () => {
+    finished = true;
+    clearTimeout(fallbackTimer);
+    menu.removeEventListener("transitionend", onTransitionEnd);
+    menuMotionCleanup = null;
+  };
 }
 
 function toggleMobileMenu(forceState) {
@@ -556,16 +683,38 @@ function toggleMobileMenu(forceState) {
   if (!button || !menu) return;
   const currentlyOpen = menu.classList.contains("is-open");
   const opening = typeof forceState === "boolean" ? forceState : !currentlyOpen;
-  if (opening === currentlyOpen) return;
+  if (opening === currentlyOpen || (!opening && menu.classList.contains("is-closing"))) return;
   button.setAttribute("aria-expanded", String(opening));
+  button.setAttribute("aria-label", opening ? "Close menu" : "Open menu");
   menu.setAttribute("aria-hidden", String(!opening));
   menu.inert = !opening;
-  button.classList.toggle("is-open", opening);
-  menu.classList.toggle("is-open", opening);
-  document.body.classList.toggle("menu-open", opening);
+  if (opening) {
+    menu.classList.remove("is-closing");
+    menu.scrollTop = 0;
+    button.classList.add("is-open");
+    menu.classList.add("is-open");
+    document.body.classList.add("menu-open");
+    syncShellInert();
+    afterMenuMotion(menu, () => {
+      if (menu.classList.contains("is-open") && document.activeElement === button) menu.querySelector("a")?.focus();
+    });
+    return;
+  }
+
+  const shouldRestoreFocus = menu.contains(document.activeElement) || document.activeElement === button;
+  menu.classList.remove("is-open");
+  menu.classList.add("is-closing");
   syncShellInert();
-  if (opening) setTimeout(() => menu.querySelector("a")?.focus(), 50);
-  else if (button.offsetParent !== null) button.focus();
+  afterMenuMotion(menu, () => {
+    menu.classList.remove("is-closing");
+    menu.scrollTop = 0;
+    button.classList.remove("is-open");
+    document.body.classList.remove("menu-open");
+    syncShellInert();
+    const cartOpen = document.querySelector("[data-cart-drawer].is-open");
+    const searchOpen = document.querySelector("[data-search-dialog]")?.open;
+    if (shouldRestoreFocus && !cartOpen && !searchOpen && button.offsetParent !== null) button.focus();
+  });
 }
 
 function renderCheckoutSummary() {
@@ -605,7 +754,7 @@ function initForms() {
       const input = form.querySelector('input[type="email"]');
       if (!input.checkValidity()) { input.reportValidity(); return; }
       form.reset();
-      showToast("Demo complete — connect a newsletter service to subscribe.");
+      showToast("Newsletter form preview");
     });
   });
 
@@ -654,21 +803,25 @@ function initForms() {
   });
 }
 
+let revealObserver = null;
+
 function initReveal() {
   const nodes = document.querySelectorAll(".reveal:not(.is-revealed)");
   if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     nodes.forEach((node) => node.classList.add("is-revealed"));
     return;
   }
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-revealed");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { rootMargin: "0px 0px -5%", threshold: 0.08 });
-  nodes.forEach((node) => observer.observe(node));
+  if (!revealObserver) {
+    revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-revealed");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: "0px 0px -5%", threshold: 0.08 });
+  }
+  nodes.forEach((node) => revealObserver.observe(node));
 }
 
 function initHomeHeader() {
@@ -785,19 +938,32 @@ function initMenuVisual() {
   const frame = document.querySelector(".mobile-menu__visual");
   const image = frame?.querySelector("[data-menu-visual]");
   if (!frame || !image) return;
-  let changeTimer = null;
+  image.dataset.currentSource = image.getAttribute("src");
+  let requestToken = 0;
 
   document.querySelectorAll("[data-menu-image]").forEach((link) => {
     const changeImage = () => {
       const nextSource = link.dataset.menuImage;
-      if (!nextSource || image.src === nextSource) return;
-      clearTimeout(changeTimer);
+      const token = ++requestToken;
+      if (!nextSource) return;
+      if (image.dataset.currentSource === nextSource) {
+        frame.classList.remove("is-changing");
+        return;
+      }
       frame.classList.add("is-changing");
-      changeTimer = setTimeout(() => {
+      const preload = new Image();
+      preload.decoding = "async";
+      preload.onload = async () => {
+        try { await preload.decode(); } catch { /* Decoding can resolve through onload alone. */ }
+        if (token !== requestToken) return;
         image.src = nextSource;
-        image.addEventListener("load", () => frame.classList.remove("is-changing"), { once: true });
-        changeTimer = setTimeout(() => frame.classList.remove("is-changing"), 900);
-      }, 150);
+        image.dataset.currentSource = nextSource;
+        requestAnimationFrame(() => frame.classList.remove("is-changing"));
+      };
+      preload.onerror = () => {
+        if (token === requestToken) frame.classList.remove("is-changing");
+      };
+      preload.src = nextSource;
     };
     link.addEventListener("pointerenter", changeImage);
     link.addEventListener("focus", changeImage);

@@ -31,33 +31,38 @@
 
     <section class="catalog-shell" aria-label="Product catalog">
       <div class="catalog-toolbar" data-catalog-controls>
-        <div class="filter-chips" role="group" aria-label="Filter products by category">
-          <button class="is-active" type="button" data-category="all">All</button>
-          <button type="button" data-category="tshirts">T-shirts</button>
-          <button type="button" data-category="hoodies">Hoodies</button>
-          <button type="button" data-category="outerwear">Jackets</button>
-          <button type="button" data-category="accessories">Accessories</button>
-          <button type="button" data-category="kids">Kids</button>
+        <div class="catalog-toolbar__topline">
+          <p class="catalog-toolbar__label">Explore the collection</p>
+          <p class="product-count" data-product-count aria-live="polite">42 items</p>
         </div>
-        <div class="catalog-tools">
-          <label class="catalog-search">
-            <span class="sr-only">Search products</span>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4 4"></path></svg>
-            <input type="search" data-catalog-search placeholder="SEARCH PRODUCTS" autocomplete="off">
-          </label>
-          <label class="catalog-sort-wrap">
-            <span class="sr-only">Sort products</span>
-            <select data-catalog-sort>
-              <option value="featured">Featured</option>
-              <option value="price-low">Price: low to high</option>
-              <option value="price-high">Price: high to low</option>
-              <option value="name">Name: A–Z</option>
-            </select>
-          </label>
+        <div class="catalog-toolbar__main">
+          <div class="filter-chips" role="group" aria-label="Filter products by category">
+            <button class="is-active" type="button" data-category="all" aria-controls="product-catalog-grid">All</button>
+            <button type="button" data-category="tshirts" aria-controls="product-catalog-grid">T-shirts</button>
+            <button type="button" data-category="hoodies" aria-controls="product-catalog-grid">Hoodies</button>
+            <button type="button" data-category="outerwear" aria-controls="product-catalog-grid">Jackets</button>
+            <button type="button" data-category="accessories" aria-controls="product-catalog-grid">Accessories</button>
+            <button type="button" data-category="kids" aria-controls="product-catalog-grid">Kids</button>
+          </div>
+          <div class="catalog-tools">
+            <label class="catalog-search">
+              <span class="sr-only">Search products</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4 4"></path></svg>
+              <input type="search" data-catalog-search placeholder="SEARCH PRODUCTS" autocomplete="off" aria-controls="product-catalog-grid">
+            </label>
+            <label class="catalog-sort-wrap">
+              <span class="sr-only">Sort products</span>
+              <select data-catalog-sort aria-controls="product-catalog-grid">
+                <option value="featured">Featured</option>
+                <option value="price-low">Price: low to high</option>
+                <option value="price-high">Price: high to low</option>
+                <option value="name">Name: A–Z</option>
+              </select>
+            </label>
+          </div>
         </div>
-        <p class="product-count" data-product-count aria-live="polite">42 items</p>
       </div>
-      <div class="product-grid catalog-grid" data-product-grid data-catalog-grid></div>
+      <div class="product-grid catalog-grid" id="product-catalog-grid" data-product-grid data-catalog-grid></div>
     </section>
   </main>
 
